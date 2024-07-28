@@ -1,0 +1,16 @@
+{
+    "name": "cinecampus",
+    "version": "1.0.0",
+    "main": "/js/main.js",
+    "type": "module",
+    "scripts": {
+        "dev": "node --watch js/main.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "mongodb": "^6.8.0"
+    }
+}
