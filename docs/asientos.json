@@ -1,0 +1,162 @@
+[{
+    "_id": {
+      "$oid": "66a94831e51743e1932ce824"
+    },
+    "id_lugar": {
+      "$oid": "66a416b82b5275e3378bc350"
+    },
+    "TipoFila": "general",
+    "codigo": [
+      {
+        "codigo_asiento": "a1"
+      },
+      {
+        "codigo_asiento": "a2"
+      },
+      {
+        "codigo_asiento": "a3"
+      },
+      {
+        "codigo_asiento": "a4"
+      },
+      {
+        "codigo_asiento": "a5"
+      }
+    ],
+    "aumento": 0
+  },
+  {
+    "_id": {
+      "$oid": "66a94831e51743e1932ce825"
+    },
+    "id_lugar": {
+      "$oid": "66a416b82b5275e3378bc350"
+    },
+    "TipoFila": "preferencial",
+    "codigo": [
+      {
+        "codigo_asiento": "p1"
+      },
+      {
+        "codigo_asiento": "p2"
+      },
+      {
+        "codigo_asiento": "p3"
+      },
+      {
+        "codigo_asiento": "p4"
+      },
+      {
+        "codigo_asiento": "p5"
+      }
+    ],
+    "aumento": 20
+  },
+  {
+    "_id": {
+      "$oid": "66a94831e51743e1932ce826"
+    },
+    "id_lugar": {
+      "$oid": "66a416b82b5275e3378bc351"
+    },
+    "TipoFila": "general",
+    "codigo": [
+      {
+        "codigo_asiento": "a1"
+      },
+      {
+        "codigo_asiento": "a2"
+      },
+      {
+        "codigo_asiento": "a3"
+      },
+      {
+        "codigo_asiento": "a4"
+      },
+      {
+        "codigo_asiento": "a5"
+      }
+    ],
+    "aumento": 0
+  },
+  {
+    "_id": {
+      "$oid": "66a94831e51743e1932ce827"
+    },
+    "id_lugar": {
+      "$oid": "66a416b82b5275e3378bc351"
+    },
+    "TipoFila": "preferencial",
+    "codigo": [
+      {
+        "codigo_asiento": "p1"
+      },
+      {
+        "codigo_asiento": "p2"
+      },
+      {
+        "codigo_asiento": "p3"
+      },
+      {
+        "codigo_asiento": "p4"
+      },
+      {
+        "codigo_asiento": "p5"
+      }
+    ],
+    "aumento": 20
+  },
+  {
+    "_id": {
+      "$oid": "66a94831e51743e1932ce828"
+    },
+    "id_lugar": {
+      "$oid": "66a416b82b5275e3378bc352"
+    },
+    "TipoFila": "general",
+    "codigo": [
+      {
+        "codigo_asiento": "a1"
+      },
+      {
+        "codigo_asiento": "a2"
+      },
+      {
+        "codigo_asiento": "a3"
+      },
+      {
+        "codigo_asiento": "a4"
+      },
+      {
+        "codigo_asiento": "a5"
+      }
+    ],
+    "aumento": 0
+  },
+  {
+    "_id": {
+      "$oid": "66a94831e51743e1932ce829"
+    },
+    "id_lugar": {
+      "$oid": "66a416b82b5275e3378bc352"
+    },
+    "TipoFila": "preferencial",
+    "codigo": [
+      {
+        "codigo_asiento": "p1"
+      },
+      {
+        "codigo_asiento": "p2"
+      },
+      {
+        "codigo_asiento": "p3"
+      },
+      {
+        "codigo_asiento": "p4"
+      },
+      {
+        "codigo_asiento": "p5"
+      }
+    ],
+    "aumento": 20
+  }]
