@@ -1,10 +1,10 @@
 {
     "name": "cinecampus",
     "version": "1.0.0",
-    "main": "/js/main.js",
+    "main": "main.js",
     "type": "module",
     "scripts": {
-        "test": "node --watch --env-file=.env main.js",
+        "test": "node --watch --env-file=.env test.js",
         "dev": "node --watch --env-file=.env main.js"
     },
     "keywords": [],
@@ -12,6 +12,7 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
+        "bcrypt": "^5.1.1",
         "dotenv": "^16.4.5",
         "express": "^4.19.2",
         "mongodb": "^6.8.0"
