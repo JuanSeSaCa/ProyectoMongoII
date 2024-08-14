@@ -53,13 +53,13 @@ import { Funciones } from "./js/modules/funciones.js";
 let funcion = new Funciones();
 
 // Reservar asientos para una función específica
-console.log(await funcion.reservarAsientos('66a94c01e51743e1932ce834', ['a1', 'a2']));
+console.log(await funcion.reservarAsientos('66b275ffd541a250404781d6', ['a1', 'a2']));
 
 // Encontrar boletos disponibles para una función específica
-console.log(await funcion.findAvailableBoletas('66a94c01e51743e1932ce832'));
+console.log(await funcion.findAvailableTickets('66b275ffd541a250404781d6'));
 
 // Cancelar reserva de asientos
-console.log(await funcion.cancelarReserva('66a94c01e51743e1932ce834', ['a1', 'a2']));
+console.log(await funcion.cancelarReserva('66b275ffd541a250404781d6', ['a1', 'a2']));
 Clientes
 Descripción: Módulo para gestionar información de clientes y verificar tarjetas VIP.
 
@@ -71,19 +71,21 @@ import { Clientes } from "./js/modules/cliente.js"
 let clientes = new Clientes();
 
 // Verificar la validez de una tarjeta VIP para un cliente específico
-console.log(await clientes.verificarTarjetaVIP('66aa7785a0f7d729adeb619a', '1234567890123456'));
+console.log(await clientes.verificarTarjetaVIP('66c48b92d571a320405791ed', '4444333322221111'));
 
 // Crear un nuevo usuario en la base de datos
-console.log(await clientes.crearUsuario('Alice', 'Johnson', 'alicej', 'alice.johnson@example.com', '1234567890', 'password123', 'Administrador'));
+console.log(await clientes.crearUsuario('Alicia', 'Jackson', 'aliciaj', 'alice.johnson@example.com', '1234567890', 'password123', 'Administrador'));
 
 // Obtener detalles de un usuario específico por ID
-console.log(await clientes.obtenerDetallesUsuario('66aa7785a0f7d729adeb619a'));
+console.log(await clientes.obtenerDetallesUsuario('66c48b92d571a320405791f3'));
 
 // Obtener todos los clientes
 console.log(await clientes.findClientes());
 
 // Actualizar el rol de un usuario
 console.log(await clientes.actualizarRolUsuario('id', 'Usuario VIP'));
+
+
 Documentación de las Funciones del Código
 Peliculas.js
 getAllFilmsAvailable()
