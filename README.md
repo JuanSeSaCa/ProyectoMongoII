@@ -19,6 +19,140 @@ Desarrollar una serie de APIs para la aplicación web de CineCampus utilizando M
 1. Selección de Películas:
    - **API para Listar Películas:** Permitir la consulta de todas las películas disponibles en el catálogo, con detalles como título, género, duración y horarios de proyección.
    - **API para Obtener Detalles de Película:** Permitir la consulta de información detallada sobre una película específica, incluyendo sinopsis.
+
+
+
+
+Estructura del Código
+=====================
+
+Películas
+Descripción: Módulo para gestionar operaciones relacionadas con las películas.
+
+
+Código de Ejemplo:
+
+import { Peliculas } from "./js/modules/peliculas.js";
+
+// Instanciar el objeto Peliculas
+let pelicula = new Peliculas();
+
+// Obtener todas las películas disponibles
+console.log(await pelicula.getAllFilmsAvailable());
+
+// Obtener detalles de una película específica por ID
+console.log(await pelicula.getAllDetailsFilms('66a412c85358b6683f5b8baf'));
+Funciones
+Descripción: Módulo para reservas de asientos y disponibilidad de boletos.
+
+Código de Ejemplo:
+
+import { Funciones } from "./js/modules/funciones.js";
+
+// Instanciar el objeto Funciones
+let funcion = new Funciones();
+
+// Reservar asientos para una función específica
+console.log(await funcion.reservarAsientos('66a94c01e51743e1932ce834', ['a1', 'a2']));
+
+// Encontrar boletos disponibles para una función específica
+console.log(await funcion.findAvailableBoletas('66a94c01e51743e1932ce832'));
+
+// Cancelar reserva de asientos
+console.log(await funcion.cancelarReserva('66a94c01e51743e1932ce834', ['a1', 'a2']));
+Clientes
+Descripción: Módulo para gestionar información de clientes y verificar tarjetas VIP.
+
+Código de Ejemplo:
+
+import { Clientes } from "./js/modules/cliente.js"
+
+// Instanciar el objeto Clientes
+let clientes = new Clientes();
+
+// Verificar la validez de una tarjeta VIP para un cliente específico
+console.log(await clientes.verificarTarjetaVIP('66aa7785a0f7d729adeb619a', '1234567890123456'));
+
+// Crear un nuevo usuario en la base de datos
+console.log(await clientes.crearUsuario('Alice', 'Johnson', 'alicej', 'alice.johnson@example.com', '1234567890', 'password123', 'Administrador'));
+
+// Obtener detalles de un usuario específico por ID
+console.log(await clientes.obtenerDetallesUsuario('66aa7785a0f7d729adeb619a'));
+
+// Obtener todos los clientes
+console.log(await clientes.findClientes());
+
+// Actualizar el rol de un usuario
+console.log(await clientes.actualizarRolUsuario('id', 'Usuario VIP'));
+Documentación de las Funciones del Código
+Peliculas.js
+getAllFilmsAvailable()
+
+Descripción: Obtiene todas las películas disponibles.
+Entrada: Ninguna
+Salida: Promise<Array<Object>> - Array de objetos, cada uno representando una película disponible.
+getAllDetailsFilms(id)
+
+Descripción: Obtiene los detalles de una película por ID.
+Entrada: id: string - ID de la película.
+Salida: Promise<Object> - Objeto con los detalles de la película especificada por el ID.
+Funciones.js
+reservarAsientos(id, asientos)
+
+Descripción: Reserva asientos para una función.
+Entrada:
+id: string - ID de la función.
+asientos: Array<string> - Array de códigos de asiento.
+Salida: Promise<Object> - Resultado de la reserva de asientos.
+findAvailableBoletas(id)
+
+Descripción: Encuentra boletos disponibles para una función.
+Entrada: id: string - ID de la función.
+Salida: Promise<Array<Object>> - Array de objetos representando boletos disponibles.
+cancelarReserva(id, asientos)
+
+Descripción: Cancela la reserva de asientos.
+Entrada:
+id: string - ID de la función.
+asientos: Array<string> - Array de códigos de asiento.
+Salida: Promise<Object> - Resultado de la cancelación de la reserva.
+Clientes.js
+findClientes()
+
+Descripción: Obtiene todos los clientes.
+Entrada: Ninguna
+Salida: Promise<Object> - Objeto con el estado y un array de documentos de clientes.
+verificarTarjetaVIP(id, numeroTarjeta)
+
+Descripción: Verifica la validez de una tarjeta VIP.
+Entrada:
+id: string - ID del cliente.
+numeroTarjeta: string - Número de la tarjeta VIP.
+Salida: Promise<Object> - Objeto con el estado y el mensaje de la verificación de la tarjeta VIP.
+crearUsuario(nombre, apellido, nickname, email, telefono, contrasena, categoria)
+
+Descripción: Crea un nuevo usuario en la base de datos.
+Entrada:
+nombre: string - Nombre del usuario.
+apellido: string - Apellido del usuario.
+nickname: string - Apodo del usuario.
+email: string - Correo electrónico del usuario.
+telefono: string - Número de teléfono del usuario.
+contrasena: string - Contraseña del usuario (encriptada).
+categoria: string - Categoría del usuario.
+Salida: Promise<Object> - Objeto con el estado y el mensaje de la creación del usuario.
+obtenerDetallesUsuario(id)
+
+Descripción: Obtiene la información detallada de un usuario por su ID.
+Entrada: id: string - ID del usuario.
+Salida: Promise<Object> - Objeto con el estado, el mensaje y los detalles del usuario.
+actualizarRolUsuario(nombre, nuevoRol)
+
+Descripción: Permite la actualización del rol de un usuario.
+Entrada:
+nombre: string - Nombre del usuario.
+nuevoRol: string - Nuevo rol del usuario.
+Salida: Promise<Object> - Objeto con el estado y el mensaje de la actualización del rol del usuario.
 2. Compra de Boletos:
    - **API para Comprar Boletos:** Permitir la compra de boletos para una película específica, incluyendo la selección de la fecha y la hora de la proyección.
    - **API para Verificar Disponibilidad de Asientos:** Permitir la consulta de la disponibilidad de asientos en una sala para una proyección específica.
@@ -42,69 +176,4 @@ Desarrollar una serie de APIs para la aplicación web de CineCampus utilizando M
 - **Recursos**
   - ![](https://i.ibb.co/SRdNPRr/draw-SQL-image-export-2024-07-25.png)
 
-### **Rúbrica Evaluativa**
-
-Los puntos a evaluar serán los siguientes:
-
-### 1. Selección de Películas (20%)
-
-- **0 puntos:** No se implementa la funcionalidad para listar películas ni obtener detalles de una película.
-- **25 puntos:** La funcionalidad para listar películas o obtener detalles de una película está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para listar películas y obtener detalles de una película está implementada pero presenta errores menores o no proporciona todos los datos requeridos.
-- **75 puntos:** La funcionalidad para listar películas y obtener detalles de una película está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para listar películas y obtener detalles de una película está completamente implementada, es eficiente, y proporciona toda la información requerida de manera clara.
-
-### 2. Compra de Boletos (20%)
-
-- **0 puntos:** No se implementa la funcionalidad para comprar boletos ni verificar la disponibilidad de asientos.
-- **25 puntos:** La funcionalidad para comprar boletos o verificar la disponibilidad de asientos está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para comprar boletos y verificar la disponibilidad de asientos está implementada pero presenta errores menores o no maneja todos los casos posibles.
-- **75 puntos:** La funcionalidad para comprar boletos y verificar la disponibilidad de asientos está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para comprar boletos y verificar la disponibilidad de asientos está completamente implementada, es eficiente, y maneja todos los casos posibles de manera clara.
-
-### 3. Asignación de Asientos (20%)
-
-- **0 puntos:** No se implementa la funcionalidad para reservar ni cancelar reservas de asientos.
-- **25 puntos:** La funcionalidad para reservar o cancelar reservas de asientos está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para reservar y cancelar reservas de asientos está implementada pero presenta errores menores o no maneja todos los casos posibles.
-- **75 puntos:** La funcionalidad para reservar y cancelar reservas de asientos está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para reservar y cancelar reservas de asientos está completamente implementada, es eficiente, y maneja todos los casos posibles de manera clara.
-
-### 4. Descuentos y Tarjetas VIP (10%)
-
-- **0 puntos:** No se implementa la funcionalidad para aplicar descuentos ni verificar la validez de tarjetas VIP.
-- **25 puntos:** La funcionalidad para aplicar descuentos o verificar la validez de tarjetas VIP está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para aplicar descuentos y verificar la validez de tarjetas VIP está implementada pero presenta errores menores o no maneja todos los casos posibles.
-- **75 puntos:** La funcionalidad para aplicar descuentos y verificar la validez de tarjetas VIP está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para aplicar descuentos y verificar la validez de tarjetas VIP está completamente implementada, es eficiente, y maneja todos los casos posibles de manera clara.
-
-### 5. Gestión de Usuarios y Roles (10%)
-
-- **0 puntos:** No se implementa la funcionalidad para gestionar usuarios ni roles.
-- **25 puntos:** La funcionalidad para gestionar usuarios o roles está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para gestionar usuarios y roles está implementada pero presenta errores menores o no maneja todos los casos posibles.
-- **75 puntos:** La funcionalidad para gestionar usuarios y roles está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para gestionar usuarios y roles está completamente implementada, es eficiente, y maneja todos los casos posibles de manera clara.
-
-### 6. Compras en Línea (10%)
-
-- **0 puntos:** No se implementa la funcionalidad para procesar pagos ni enviar confirmaciones de compra.
-- **25 puntos:** La funcionalidad para procesar pagos o enviar confirmaciones de compra está parcialmente implementada, con errores significativos o faltante de características importantes.
-- **50 puntos:** La funcionalidad para procesar pagos y enviar confirmaciones de compra está implementada pero presenta errores menores o no maneja todos los casos posibles.
-- **75 puntos:** La funcionalidad para procesar pagos y enviar confirmaciones de compra está mayormente correcta, pero con pequeños problemas de usabilidad o eficiencia.
-- **100 puntos:** La funcionalidad para procesar pagos y enviar confirmaciones de compra está completamente implementada, es eficiente, y maneja todos los casos posibles de manera clara.
-
-### 7. Documentación y Entregables (10%)
-
-- **0 puntos:** No se entrega la documentación requerida ni el código fuente en el repositorio de GitHub.
-- **25 puntos:** La documentación o el código fuente están incompletos o presentan errores significativos.
-- **50 puntos:** La documentación y el código fuente están mayormente completos, pero con algunos errores menores o faltantes.
-- **75 puntos:** La documentación y el código fuente están correctos, con pequeños problemas de claridad o detalles menores faltantes.
-- **100 puntos:** La documentación y el código fuente están completos, claros y bien organizados, proporcionando toda la información necesaria de manera eficiente.
-
-### GitHub y Entrega de Proyecto
-
-- 🚨 **Cancelación o Anulación del Proyecto** : No se entregó ningún repositorio, su visualización está oculta (o no compartida con el Trainer) o hubo adulteración después de la fecha y hora establecida para su entrega, ***Evidencia de clonación o conocido como `fork` de algún repositorio, distribución y/o copia de dicho trabajo por cualquier medio de comunicación (verbal, digital, entre otras), se asumirá como cancelación del proyecto de manera definitiva.*** 🚨
-- **25 puntos**: Se creó el repositorio, pero en su rama principal no se encuentra el proyecto general ,al igual que algún archivo en relación al proyecto.
-- **100 puntos**: Se creó exitosamente el repositorio, donde en su rama principal se encuentra el proyecto general y sus archivos en relación a ello, con evidencia de la participación del equipo completo de manera periódica.
 
