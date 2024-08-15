@@ -20,7 +20,7 @@ export class Funciones extends connect {
     this.peliculasCollection = this.db.collection('peliculas');
     this.salasCollection = this.db.collection('salas');
     this.asientosCollection = this.db.collection('asientos');
-    this.lugarCollection = this.db.collection('lugar');
+    this.lugarCollection = this.db.collection('salas');
 
     Funciones.instance = this;
     return this;

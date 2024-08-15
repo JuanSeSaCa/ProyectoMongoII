@@ -8,11 +8,11 @@ import { Peliculas } from "./js/modules/peliculas.js";
  //let pelicula = new Peliculas();
 
 // //* Obtener todas las películas disponibles
-  console.log(await pelicula.getAllFilmsAvailable());
+  //console.log(await pelicula.getAllFilmsAvailable());
  
 
 // //* Obtener detalles de una película específica por ID
- //console.log(await pelicula.getAllDetailsFilms({id: "66a6cdd3a7ff449f3519ecdb"}));
+ //console.log(await pelicula.getAllDetailsFilms({id: "66a6cdd3a7ff449f3519ecd8"}));
 
 // //* Instanciar el objeto Clientes
 //let clientes = new Clientes();

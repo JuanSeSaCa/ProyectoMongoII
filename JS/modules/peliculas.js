@@ -23,7 +23,7 @@ export class Peliculas extends connect {
         super();
         // Inicialización de las colecciones en la base de datos
         this.collection = this.db.collection('peliculas');
-        this.lugarCollection = this.db.collection('lugar');
+        this.lugarCollection = this.db.collection('salas');
         this.funcionesCollection = this.db.collection('funciones');
         // Asignar la instancia actual a la variable estática 'instance'
         Peliculas.instance = this;
@@ -62,25 +62,25 @@ export class Peliculas extends connect {
             const FuncionesDisponibles = await this.funcionesCollection.aggregate([
                 {
                     $match: {
-                        Date_inicio: { $gte: new Date() } // Solo funciones futuras
+                        Date_inicio: { $gte: new Date("2024-08-06T14:00:00.000+00:00") } // Solo funciones futuras
                     }
                 },
                 {
                     $lookup: {
-                        from: "Peliculas",
+                        from: "peliculas",
                         localField: "id_pelicula",
                         foreignField: "_id",
-                        as: "Peliculas"
+                        as: "peliculas"
                     }
                 },
                 {
-                    $unwind: "$Peliculas" // Descompone el array de Peliculas en documentos individuales
+                    $unwind: "$peliculas" // Descompone el array de Peliculas en documentos individuales
                 },
                 {
                     $replaceRoot: {
                         newRoot: {
                             $mergeObjects: [
-                                "$$ROOT", "$Peliculas" // Combina el documento de funciones con el de películas
+                                "$$ROOT", "$peliculas" // Combina el documento de funciones con el de películas
                             ]
                         }
                     }
