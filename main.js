@@ -5,10 +5,10 @@ import { Peliculas } from "./js/modules/peliculas.js";
 
 
 // //* Instanciar el objeto Peliculas
- //let pelicula = new Peliculas();
+ let pelicula = new Peliculas();
 
 // //* Obtener todas las películas disponibles
-  //console.log(await pelicula.getAllFilmsAvailable());
+  console.log(await pelicula.getAllFilmsAvailable());
  
 
 // //* Obtener detalles de una película específica por ID

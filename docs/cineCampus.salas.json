@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "66a416b82b5275e3378bc350"
+  },
+  "nombre": "Sala 1",
+  "precio": 50
+},
+{
+  "_id": {
+    "$oid": "66a416b82b5275e3378bc351"
+  },
+  "nombre": "Sala 2",
+  "precio": 60
+},
+{
+  "_id": {
+    "$oid": "66a416b82b5275e3378bc352"
+  },
+  "nombre": "Sala 3",
+  "precio": 70
+},
+{
+  "_id": {
+    "$oid": "66a416b82b5275e3378bc353"
+  },
+  "nombre": "Sala 4",
+  "precio": 80
+},
+{
+  "_id": {
+    "$oid": "66a416b82b5275e3378bc354"
+  },
+  "nombre": "Premium",
+  "precio": 100
+},
+{
+  "_id": {
+    "$oid": "66a416b82b5275e3378bc355"
+  },
+  "nombre": "Sala 5",
+  "precio": 90
+},
+{
+  "_id": {
+    "$oid": "66a416b82b5275e3378bc356"
+  },
+  "nombre": "Sala 6",
+  "precio": 120
+}]

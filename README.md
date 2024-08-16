@@ -2,6 +2,17 @@
 
 ------
 
+variables de entorno para conexión:
+
+MONGO_USER="mongo"
+MONGO_PORT="27017"
+MONGO_PWD="llyfGdBqEGUyIBdNBuygTmoPHBesrxjq"
+MONGO_HOST="mongodb://"
+MONGO_CLUSTER="monorail.proxy.rlwy.net"
+MONGO_DB="cineCampus"
+
+
+
 **Tiempo de ejecución**: 4 Dias
 
 **Nivel de dificultad:** ★★★★☆
@@ -180,3 +191,6 @@ Salida: Promise<Object> - Objeto con el estado y el mensaje de la actualización
 
 
 mongodb://mongo:gvGQwlAqcXMhHBJKwanFlyKlizZZVLxA@monorail.proxy.rlwy.net:25078/
+
+
+mongodb://mongo:llyfGdBqEGUyIBdNBuygTmoPHBesrxjq@mongodb.railway.internal:27017/

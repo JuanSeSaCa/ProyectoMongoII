@@ -1,0 +1,141 @@
+[{
+  "_id": {
+    "$oid": "66a6cdd3a7ff449f3519ecd6"
+  },
+  "titulo": "Avengers: New Dawn",
+  "sinopsis": "Los Vengadores se reúnen una vez más para enfrentarse a una nueva amenaza intergaláctica.",
+  "genero": "Acción",
+  "año": 2024,
+  "actores": [
+    "Robert Downey Jr.",
+    "Chris Evans",
+    "Scarlett Johansson"
+  ],
+  "descripcion": "Los Vengadores deben detener a una nueva fuerza que amenaza la paz en el universo."
+},
+{
+  "_id": {
+    "$oid": "66a6cdd3a7ff449f3519ecd7"
+  },
+  "titulo": "Jurassic World: Extinction",
+  "sinopsis": "La batalla final entre humanos y dinosaurios por el control de la Tierra.",
+  "genero": "Aventura",
+  "año": 2024,
+  "actores": [
+    "Chris Pratt",
+    "Bryce Dallas Howard"
+  ],
+  "descripcion": "Los dinosaurios ahora vagan libremente y la humanidad lucha por coexistir con ellos."
+},
+{
+  "_id": {
+    "$oid": "66a6cdd3a7ff449f3519ecd8"
+  },
+  "titulo": "The Matrix Resurgence",
+  "sinopsis": "Neo y Trinity regresan para desentrañar nuevos secretos del Matrix.",
+  "genero": "Ciencia Ficción",
+  "año": 2024,
+  "actores": [
+    "Keanu Reeves",
+    "Carrie-Anne Moss"
+  ],
+  "descripcion": "Neo y Trinity descubren verdades ocultas mientras luchan contra nuevas amenazas en el Matrix."
+},
+{
+  "_id": {
+    "$oid": "66a6cdd3a7ff449f3519ecd9"
+  },
+  "titulo": "Frozen: The Next Chapter",
+  "sinopsis": "Elsa y Anna enfrentan nuevas aventuras en el reino de Arendelle.",
+  "genero": "Animación",
+  "año": 2024,
+  "actores": [
+    "Idina Menzel",
+    "Kristen Bell"
+  ],
+  "descripcion": "Las hermanas deben salvar su reino de un nuevo peligro que amenaza con congelarlo todo."
+},
+{
+  "_id": {
+    "$oid": "66a6cdd3a7ff449f3519ecda"
+  },
+  "titulo": "Mission: Impossible - Reckoning",
+  "sinopsis": "Ethan Hunt y su equipo deben desactivar una nueva amenaza global.",
+  "genero": "Acción",
+  "año": 2024,
+  "actores": [
+    "Tom Cruise",
+    "Rebecca Ferguson"
+  ],
+  "descripcion": "Ethan Hunt se enfrenta a su misión más difícil cuando una nueva arma amenaza la paz mundial."
+},
+{
+  "_id": {
+    "$oid": "66a6cdd3a7ff449f3519ecdb"
+  },
+  "titulo": "Toy Story 5",
+  "sinopsis": "Woody y Buzz emprenden una nueva aventura en el mundo de los juguetes.",
+  "genero": "Animación",
+  "año": 2024,
+  "actores": [
+    "Tom Hanks",
+    "Tim Allen"
+  ],
+  "descripcion": "Los juguetes descubren nuevos amigos y enfrentan desafíos mientras exploran un nuevo hogar."
+},
+{
+  "_id": {
+    "$oid": "66a6cdd3a7ff449f3519ecdc"
+  },
+  "titulo": "The Flash: Speed Force",
+  "sinopsis": "Barry Allen debe viajar a través del tiempo para salvar el multiverso.",
+  "genero": "Ciencia Ficción",
+  "año": 2024,
+  "actores": [
+    "Ezra Miller",
+    "Michael Keaton"
+  ],
+  "descripcion": "Flash debe usar su velocidad para corregir los errores del pasado y evitar un desastre multiversal."
+},
+{
+  "_id": {
+    "$oid": "66a6cdd3a7ff449f3519ecdd"
+  },
+  "titulo": "Guardians of the Galaxy Vol. 4",
+  "sinopsis": "Los Guardianes deben proteger la galaxia de una nueva amenaza cósmica.",
+  "genero": "Aventura",
+  "año": 2024,
+  "actores": [
+    "Chris Pratt",
+    "Zoe Saldana"
+  ],
+  "descripcion": "Los Guardianes enfrentan a un nuevo enemigo mientras descubren secretos de su pasado."
+},
+{
+  "_id": {
+    "$oid": "66a6cdd3a7ff449f3519ecde"
+  },
+  "titulo": "Spider-Man: Beyond Dimensions",
+  "sinopsis": "Peter Parker se enfrenta a nuevos desafíos en dimensiones desconocidas.",
+  "genero": "Acción",
+  "año": 2024,
+  "actores": [
+    "Tom Holland",
+    "Zendaya"
+  ],
+  "descripcion": "Spider-Man debe navegar por nuevas realidades para proteger su mundo y a sus seres queridos."
+},
+{
+  "_id": {
+    "$oid": "66a6cdd3a7ff449f3519ecdf"
+  },
+  "titulo": "Star Wars: The Final Order",
+  "sinopsis": "La batalla definitiva entre la Resistencia y la Primera Orden.",
+  "genero": "Ciencia Ficción",
+  "año": 2024,
+  "actores": [
+    "Daisy Ridley",
+    "Adam Driver"
+  ],
+  "descripcion": "La Resistencia lucha por la libertad en una última confrontación contra la Primera Orden."
+}]
