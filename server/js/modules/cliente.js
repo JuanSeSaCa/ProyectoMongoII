@@ -1,4 +1,4 @@
-import { connect } from "../../helper/db/connect.js";
+import { connect } from "../../index.js";
 import { ObjectId } from "mongodb";
 
 /**

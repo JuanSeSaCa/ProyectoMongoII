@@ -24,7 +24,7 @@
 
 import express from 'express'; // Importa Express para manejar rutas y servidores
 import { ObjectId } from 'mongodb'; // Importa 'ObjectId' para manejar identificadores únicos en MongoDB
-import { connect } from '../../helper/db/connect.js'; // Importa la clase 'connect' para manejar la conexión a la base de datos
+import { connect } from '../../index.js'; // Importa la clase 'connect' para manejar la conexión a la base de datos
 
 // @CLASS 'Asientos' extiende la funcionalidad de la clase 'connect' para manejar la colección 'asientos'
 export class Asientos extends connect {
