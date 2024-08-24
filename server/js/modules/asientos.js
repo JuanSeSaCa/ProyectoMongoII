@@ -1,10 +1,10 @@
 // import { connect } from "../../helper/db/connect.js";// Importa la clase 'connect' para manejar la conexión a la base de datos
 // import { ObjectId } from "mongodb"; // Importa 'ObjectId' para manejar identificadores únicos en MongoDB
 
-// // La clase 'Asientos' extiende la funcionalidad de la clase 'connect'
+// * La clase 'Asientos' extiende la funcionalidad de la clase 'connect'
 // export class Asientos extends connect {
 //     constructor() {
-//         // Implementación del patrón Singleton: verifica si ya existe una instancia de 'Asientos'
+// *       // Implementación del patrón Singleton: verifica si ya existe una instancia de 'Asientos'
 //         if (typeof Asientos.instance === "object") {
 //             return Asientos.instance; // Si ya existe, retorna la misma instancia
 //         }
@@ -14,7 +14,7 @@
 //         return this; // Retorna la instancia actual de 'Asientos'
 //     }
 
-//     // Método asincrónico para encontrar todos los documentos en la colección 'asientos'
+//*     // Método asincrónico para encontrar todos los documentos en la colección 'asientos'
 //     async findAsientos() {
 //         let res = await this.collection.find({}).toArray(); // Realiza una consulta que devuelve todos los asientos
 //         return res; // Retorna el resultado de la consulta como un array
@@ -24,7 +24,7 @@
 
 import express from 'express'; // Importa Express para manejar rutas y servidores
 import { ObjectId } from 'mongodb'; // Importa 'ObjectId' para manejar identificadores únicos en MongoDB
-import { connect } from '../../index.js'; // Importa la clase 'connect' para manejar la conexión a la base de datos
+import { connect } from '../../index'; // Importa la clase 'connect' para manejar la conexión a la base de datos
 
 // @CLASS 'Asientos' extiende la funcionalidad de la clase 'connect' para manejar la colección 'asientos'
 export class Asientos extends connect {

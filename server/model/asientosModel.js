@@ -52,8 +52,8 @@ module.exports = class Asientos extends Connect {
             return await this.collection.find({}).toArray();
         } catch (error) {
             // Manejo de errores: imprime el error en la consola y lanza un error personalizado.
-            console.error(`Error al recuperar asientos: ${error.message}`);
-            throw new Error('No se pudieron recuperar los asientos.');
+            console.error(`Error al mostrar los asientos: ${error.message}`);
+            throw new Error('No se pudieron mostrar los asientos.');
         }
     }
 };
