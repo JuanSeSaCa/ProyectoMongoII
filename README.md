@@ -5,12 +5,13 @@
 variables de entorno para conexión:
 
 MONGO_USER="mongo"
-MONGO_PORT="27017"
-MONGO_PWD="llyfGdBqEGUyIBdNBuygTmoPHBesrxjq"
+MONGO_PORT="43832"
+MONGO_PWD="qcRiyRCaWzryXYRTbITLlHOAhqmRZyFu"
 MONGO_HOST="mongodb://"
-MONGO_CLUSTER="monorail.proxy.rlwy.net"
+MONGO_CLUSTER="autorack.proxy.rlwy.net"
 MONGO_DB="cineCampus"
 
+mongodb://mongo:qcRiyRCaWzryXYRTbITLlHOAhqmRZyFu@autorack.proxy.rlwy.net:43832
 
 
 **Tiempo de ejecución**: 4 Dias
@@ -189,8 +190,3 @@ Salida: Promise<Object> - Objeto con el estado y el mensaje de la actualización
 - **Recursos**
   - ![](https://i.ibb.co/SRdNPRr/draw-SQL-image-export-2024-07-25.png)
 
-
-mongodb://mongo:gvGQwlAqcXMhHBJKwanFlyKlizZZVLxA@monorail.proxy.rlwy.net:25078/
-
-
-mongodb://mongo:llyfGdBqEGUyIBdNBuygTmoPHBesrxjq@mongodb.railway.internal:27017/
