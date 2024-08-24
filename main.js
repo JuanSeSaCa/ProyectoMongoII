@@ -5,10 +5,10 @@ import { Peliculas } from "./js/modules/peliculas.js";
 
 
 // //* Instanciar el objeto Peliculas
- let pelicula = new Peliculas();
+ //let pelicula = new Peliculas();
 
 // //* Obtener todas las películas disponibles
-  console.log(await pelicula.getAllFilmsAvailable());
+ // console.log(await pelicula.getAllFilmsAvailable());
  
 
 // //* Obtener detalles de una película específica por ID
@@ -29,12 +29,12 @@ import { Peliculas } from "./js/modules/peliculas.js";
 
 // //* Crear un nuevo usuario en la base de datos
 //  console.log(await clientes.crearUsuario({
-//    nombre: 'Miguel',
-//    apellido: 'Castro',
-//    nickname:'miguelCastro',
-//    email: 'miguelCastro@correo.com',
-//   telefono: '3526166655',
-//   contrasena: 'miguelCastro123',
+//    nombre: 'Laura',
+//    apellido: 'Petro',
+//    nickname:'Laupetro',
+//    email: 'laupetro@correo.com',
+//   telefono: '3526548855',
+//   contrasena: 'laupetro123',
 //   categoria: 'Usuario Estandar',
 // }));
 
@@ -42,13 +42,13 @@ import { Peliculas } from "./js/modules/peliculas.js";
 //let funcion = new Funciones();
 
 // //* Reservar asientos para una función específica
-//console.log(await funcion.reservarAsientos({id:'66b275ffd541a250404781d6', asientosSeleccionados: ['a1', 'a2']}));
+//console.log(await funcion.reservarAsientos({id:'66b275ffd541a250404781d7', asientosSeleccionados: ['a1', 'a2']}));
 
 // //* Encontrar boletos disponibles para una función específica
-//console.log(await funcion.findAvailableTickets({id:'66b275ffd541a250404781d6'}));
+//console.log(await funcion.findAvailableTickets({id:'66b275ffd541a250404781d9'}));
 
 // //* Cancelar reserva de asientos
-//console.log(await funcion.cancelarReserva({id:'66b275ffd541a250404781d6', asientosCancelar: ['a1', 'a2']}));
+//console.log(await funcion.cancelarReserva({id:'66b275ffd541a250404781d7', asientosCancelar: ['a1', 'a2']}));
 
 // //* Verificar la validez de una tarjeta VIP para un cliente específico
 //console.log(await clientes.verificarTarjetaVIP({id:'66c48b92d571a320405791ed', numeroTarjeta:'4444333322221111'})); 
