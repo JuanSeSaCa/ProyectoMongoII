@@ -1,4 +1,4 @@
-// const Peliculas = require("./model/peliculasModel.js").Peliculas;
+const Peliculas = require("./model/peliculasModel.js").Peliculas;
 // const Funciones = require("./model/funcionesModel.js").Funciones;
 // const Clientes = require("./model/clientesModel.js").Clientes;
 // const Asientos = require("./model/asientosModel.js").Asientos;
@@ -53,5 +53,6 @@
 // clientes.verificarTarjetaVIP({id:'66c48b92d571a320405791ee', numeroTarjeta:'5432109876543210'}).then(console.log);
 
 
-//let asientos = new Asientos()
+// Instanciar el objeto Asientos
+// *let asientos = new Asientos()
 // asientos.findAsientos().then(console.log);

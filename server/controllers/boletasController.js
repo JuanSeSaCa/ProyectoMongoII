@@ -28,7 +28,5 @@ const getBoletas = async (req, res) => {
 module.exports = {
     getBoletas
 };
-const Boletas = require('../model/boletasModel.js'); // Asegúrate de que la ruta es correcta
 
-/**
  
