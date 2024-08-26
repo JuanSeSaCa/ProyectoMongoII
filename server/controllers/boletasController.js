@@ -1,6 +1,6 @@
 // Importa el modelo de Boletas desde la ruta especificada.
 // Asegúrate de que la ruta es correcta para evitar errores al importar el módulo.
-const Boletas = require('../model/boletasModel.js'); 
+const Boletas = require('../model/boletosModel.js'); 
 
 /** 
  * @description Función para listar todas las boletas.
@@ -32,17 +32,3 @@ const Boletas = require('../model/boletasModel.js'); // Asegúrate de que la rut
 
 /**
  
-Lista todas las boletas.*/
-const getBoletas = async (req, res) => {
-    const boletasModel = new Boletas();
-    try {
-        const boletas = await boletasModel.findBoletas();
-        res.status(200).json(boletas);
-    } catch (error) {
-        res.status(500).json({ status: 'Error', mensaje: error.message });
-    }
-};
-
-module.exports = {
-    getBoletas
-};
