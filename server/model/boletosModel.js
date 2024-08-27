@@ -1,5 +1,6 @@
 const Connect = require("../index.js"); // * Importa la clase base 'Connect' desde el archivo '../index.js'
 const { ObjectId } = require("mongodb"); // * Importa 'ObjectId' de la librería 'mongodb'
+const BoletasDTO = require("./BoletasDTO.js"); // * Importa el DTO de Boletas
 
 /**
  * Clase `Boletas`
@@ -25,11 +26,13 @@ class Boletas extends Connect {
     /**
      * Recupera todas las boletas disponibles en la base de datos.
      * 
-     * @returns {Promise<Array<Object>>} Un arreglo de objetos que representan las boletas.
+     * @returns {Promise<Array<BoletasDTO>>} Un arreglo de objetos `BoletasDTO` que representan las boletas.
      */
     async findBoletas() {
         try {
-            return await this.collection.find({}).toArray(); // * Realiza una búsqueda de todas las boletas y las retorna como un array
+            const boletasArray = await this.collection.find({}).toArray(); // * Realiza una búsqueda de todas las boletas y las retorna como un array
+            // Utiliza el DTO para transformar los datos antes de retornarlos
+            return BoletasDTO.fromDatabaseArray(boletasArray);
         } catch (error) {
             console.error(`Error al recuperar boletas: ${error.message}`); // /! Loguea un mensaje de error si falla la búsqueda
             throw new Error('No se pudieron recuperar las boletas.'); // /! Lanza un nuevo error si ocurre una excepción
