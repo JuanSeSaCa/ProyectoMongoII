@@ -1,31 +1,67 @@
 [{
   "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecd6"
+    "$oid": "66a6cdd3a7ff449f3519ecd6"},
+  "titulo": "John Wick: Capítulo 4",
+    "generos": [
+      "Acción",
+      "Crimen",
+      "Thriller"
+    ],
+    "duracion": 175,
+    "sinopsis": "John Wick debe enfrentarse a sus enemigos más peligrosos mientras sigue luchando por su vida y por la venganza.",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
+    "poster_path": "https://extra.com.co/wp-content/uploads/2022/07/2_38.jpg",
+    "actores": [
+      {
+        "nombre": "Keanu Reeves",
+        "imagen": "https://media.themoviedb.org/t/p/w500/4D0PpNI0kmP58hgrwGC3wCjxhnm.jpg",
+        "character_name": "John Wick"
+      },
+      {
+        "nombre": "Laurence Fishburne",
+        "imagen": "https://media.themoviedb.org/t/p/w500/iwx7h0AfWMm9K4sMmhru3ShSra.jpg",
+        "character_name": "The Bowery King"
+      },
+      {
+        "nombre": "Ian McShane",
+        "imagen": "https://media.themoviedb.org/t/p/w500/rteBJYNgD1yGsHg2HGZAIrYHz1t.jpg",
+        "character_name": "Winston"
+      }
+    ],
+    "trailer": "https://www.youtube.com/watch?v=qEVUtrk8_B4&t=73s"
   },
-  "titulo": "Avengers: New Dawn",
-  "sinopsis": "Los Vengadores se reúnen una vez más para enfrentarse a una nueva amenaza intergaláctica.",
-  "genero": "Acción",
-  "año": 2024,
-  "actores": [
-    "Robert Downey Jr.",
-    "Chris Evans",
-    "Scarlett Johansson"
-  ],
-  "descripcion": "Los Vengadores deben detener a una nueva fuerza que amenaza la paz en el universo."
-},
 {
   "_id": {
     "$oid": "66a6cdd3a7ff449f3519ecd7"
   },
-  "titulo": "Jurassic World: Extinction",
-  "sinopsis": "La batalla final entre humanos y dinosaurios por el control de la Tierra.",
-  "genero": "Aventura",
-  "año": 2024,
-  "actores": [
-    "Chris Pratt",
-    "Bryce Dallas Howard"
+  "titulo": "Doctor Strange en el Multiverso de la Locura",
+  "generos": [
+    "Acción",
+    "Aventura",
+    "Ciencia ficción"
   ],
-  "descripcion": "Los dinosaurios ahora vagan libremente y la humanidad lucha por coexistir con ellos."
+  "duracion": 148,
+  "sinopsis": "Doctor Strange se adentra en el multiverso, enfrentando nuevos peligros y aliados mientras intenta salvar la realidad misma.",
+  "backdrop_path": "https://media.themoviedb.org/t/p/w500/9VZO30aIAhQoiiP3qsRd5jd7UvQ.jpg",
+  "poster_path": "https://lumiere-a.akamaihd.net/v1/images/image_451523ce.jpeg?region=0,0,540,810",
+  "actores": [
+    {
+      "nombre": "Benedict Cumberbatch",
+      "imagen": "https://media.themoviedb.org/t/p/w500/fBEucxECxGLKVHBznO0qHtCGiMO.jpg",
+      "character_name": "Doctor Stephen Strange"
+    },
+    {
+      "nombre": "Elizabeth Olsen",
+      "imagen": "https://media.themoviedb.org/t/p/w500/wIU675y4dofIDVuhaNWPizJNtep.jpg",
+      "character_name": "Wanda Maximoff / Scarlet Witch"
+    },
+    {
+      "nombre": "Chiwetel Ejiofor",
+      "imagen": "https://image.tmdb.org/t/p/original/pbnWjBsze67Fbr3gZAP1ZP407ZU.jpg",
+      "character_name": "Karl Mordo"
+    }
+  ],
+  "trailer": "https://www.youtube.com/watch?v=KREBGtEeW9U"
 },
 {
   "_id": {
