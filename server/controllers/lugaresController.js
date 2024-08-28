@@ -1,4 +1,4 @@
-const Lugares = require('../model/lugaresModel.js'); // Importa el modelo de lugares
+const Lugares = require('../model/lugaresModels'); // Importa el modelo de lugares
 
 /**
  * * Lista todas las salas de cine.

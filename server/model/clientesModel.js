@@ -1,223 +1,144 @@
-const Connect = require("../index.js"); // * Importa la clase base 'Connect' desde el archivo '../index.js'
-const { ObjectId } = require("mongodb"); // * Importa 'ObjectId' de la librería 'mongodb'
+const Connect = require("../index.js"); // * Importa la clase base Connect que maneja la conexión a la base de datos
+const { ObjectId } = require("mongodb"); // * Importa ObjectId desde el paquete mongodb para manejar identificadores de documentos
+const { validateClientId, validateNewUser, validateVIPCard, validateUserRole } = require("../dto/clientesDto.js"); // * Importa funciones de validación y verificación desde DTOs relacionados con clientes
 
 /**
- * Clase `Clientes`
+ * * Clase `Clientes`
  * 
- * Maneja las operaciones relacionadas con los clientes en la base de datos MongoDB.
+ * * Maneja las operaciones relacionadas con los clientes en la base de datos MongoDB.
  * 
  * @class
  * @extends Connect
  */
 class Clientes extends Connect {
-    static instance; // * Propiedad estática para implementar el patrón Singleton
+    static instance; // * Propiedad estática para almacenar la instancia única de la clase
 
     constructor() {
-        if (typeof Clientes.instance === "object") { // ? Verifica si ya existe una instancia de la clase 'Clientes'
-            return Clientes.instance; // /! Si ya existe una instancia, la retorna y evita crear una nueva
+        if (typeof Clientes.instance === "object") { // * Verifica si ya existe una instancia de la clase
+            return Clientes.instance; // * Retorna la instancia existente para implementar el patrón Singleton
         }
-        super(); // * Llama al constructor de la clase base 'Connect'
-        this.collection = this.db.collection('clientes'); // * Asigna la colección 'clientes' de la base de datos a la propiedad 'collection'
-        Clientes.instance = this; // * Guarda la instancia actual en la propiedad estática 'instance'
-        return this; // * Retorna la instancia de la clase 'Clientes'
+        super(); // * Llama al constructor de la clase base para establecer la conexión con la base de datos
+        this.collection = this.db.collection('clientes'); // * Establece la colección 'clientes' de la base de datos
+        Clientes.instance = this; // * Guarda la instancia actual como única
+        return this; // * Retorna la instancia de la clase
     }
 
     /**
-     * Recupera todos los clientes de la colección 'clientes'.
+     * * Recupera todos los clientes disponibles en la base de datos.
      * 
-     * @returns {Promise<Array<Object>>} Arreglo de documentos de clientes.
+     * @returns {Promise<Array<Object>>} Un arreglo de objetos que representan los clientes.
      */
     async findClientes() {
         try {
-            return await this.collection.find({}).toArray(); // * Realiza una búsqueda de todos los clientes y los retorna como un array
-        } catch (error) {
-            console.error(`Error al recuperar clientes: ${error.message}`); // /! Loguea un mensaje de error si falla la búsqueda
-            throw new Error('No se pudieron recuperar los clientes.'); // */! Lanza un nuevo error si ocurre una excepción
+            return await this.collection.find({}).toArray(); // * Recupera todos los clientes y los convierte a un arreglo
+        } catch (error) { // ! Maneja errores que puedan ocurrir durante la recuperación
+            console.error(`Error al recuperar clientes: ${error.message}`); // * Imprime un mensaje de error en la consola
+            throw new Error('No se pudieron recuperar los clientes.'); // ! Lanza un error si ocurre un problema
         }
     }
 
     /**
-     * Verifica la validez de una tarjeta VIP durante el proceso de compra.
+     * * Verifica si la tarjeta VIP es válida para el cliente.
      * 
-     * @param {Object} data - Datos necesarios para la verificación.
-     * @returns {Object} Objeto con el estado y el mensaje de la verificación.
+     * @param {Object} data - Datos necesarios para la verificación de la tarjeta VIP.
+     * @returns {Promise<Object>} Un objeto con el estado de la verificación y un mensaje.
      */
     async verificarTarjetaVIP(data) {
-        const { id, numeroTarjeta } = data; // * Desestructura los datos de la tarjeta y el ID del cliente
         try {
-            const cliente = await this.collection.findOne({ _id: new ObjectId(id) }); // * Busca el cliente por ID
-
-            if (!cliente) { // ? Verifica si el cliente existe
-                return { status: 'Not Found', mensaje: 'Cliente no encontrado.' }; // /! Si no se encuentra el cliente, retorna un error
-            }
-
-            const tarjeta = cliente.tarjeta.find(t => t.numero === numeroTarjeta && t.estado === 'activo'); // * Verifica si la tarjeta es válida y está activa
-
-            if (!tarjeta) { // ? Verifica si la tarjeta encontrada es válida
-                return { status: 'Error', mensaje: 'Tarjeta no válida o no pertenece al cliente.' }; // /! Si no es válida, retorna un error
-            }
-
+            await validateVIPCard(data, this); // * Valida la tarjeta VIP usando la función importada
             return { status: 'Success', mensaje: 'Tarjeta válida. Puede proceder con la compra.' }; // * Retorna éxito si la tarjeta es válida
-        } catch (error) {
-            let [status, mensaje] = `${error}`.split(": "); // * Divide el mensaje de error para retornar un objeto estructurado
-            return { status, mensaje }; // * Retorna el estado y el mensaje del error
+        } catch (error) { // ! Maneja errores que puedan ocurrir durante la verificación
+            return { status: 'Error', mensaje: error.message }; // * Retorna un mensaje de error si la tarjeta no es válida
         }
     }
 
     /**
-     * Crea un nuevo usuario en la base de datos.
+     * * Crea un nuevo usuario en la base de datos.
      * 
-     * @param {Object} nuevoUsuario - Objeto con los datos del usuario.
-     * @returns {Object} Objeto con el estado y el mensaje del resultado de la creación del usuario.
+     * @param {Object} nuevoUsuario - Datos del nuevo usuario.
+     * @returns {Promise<Object>} Un objeto con el estado de la creación y un mensaje.
      */
     async crearUsuario(nuevoUsuario) {
-        const { nombre, apellido, nickname, email, telefono, contrasena, categoria } = nuevoUsuario; // * Desestructura los datos del nuevo usuario
-
-        const usuario = { // * Define el objeto usuario con los datos proporcionados y el descuento calculado
-            nombre,
-            apellido,
-            nickname,
-            email,
-            telefono,
-            contrasena,
-            categoria,
-            descuento: this.obtenerDescuentoPorCategoria(categoria), // * Calcula el descuento basado en la categoría del usuario
-            tarjeta: []
-        };
-
         try {
-            // ? Verifica si el email, teléfono o nickname ya existen en la base de datos
-            const emailExistente = await this.collection.findOne({ email });
-            if (emailExistente) {
-                return { status: 'Error', mensaje: 'El correo electrónico ya está en uso.' }; // /! Retorna un error si el email ya está en uso
-            }
+            await validateNewUser(nuevoUsuario, this); // * Valida la información del nuevo usuario usando la función importada
+            
+            const usuario = {
+                ...nuevoUsuario, // * Copia los datos del nuevo usuario
+                descuento: this.obtenerDescuentoPorCategoria(nuevoUsuario.categoria), // * Asigna el descuento basado en la categoría
+                tarjeta: [] // * Inicializa el campo de tarjeta como vacío
+            };
 
-            const telefonoExistente = await this.collection.findOne({ telefono });
-            if (telefonoExistente) {
-                return { status: 'Error', mensaje: 'El número de teléfono ya está en uso.' }; // /! Retorna un error si el teléfono ya está en uso
-            }
+            const resultado = await this.collection.insertOne(usuario); // * Inserta el nuevo usuario en la colección 'clientes'
 
-            const nicknameExistente = await this.collection.findOne({ nickname });
-            if (nicknameExistente) {
-                return { status: 'Error', mensaje: 'El nombre de usuario ya está en uso.' }; // /! Retorna un error si el nickname ya está en uso
-            }
-
-            // ? Verifica si la categoría proporcionada es válida
-            const categoriasPermitidas = ['Administrador', 'Usuario Estándar', 'Usuario VIP'];
-            if (!categoriasPermitidas.includes(categoria)) {
-                return { status: 'Error', mensaje: 'Categoría no válida.' }; // /! Retorna un error si la categoría no es válida
-            }
-
-            const resultado = await this.collection.insertOne(usuario); // * Inserta el nuevo usuario en la colección
-
-            await this.db.command({ // * Crea un usuario de base de datos con el rol correspondiente
-                createUser: nickname,
-                pwd: contrasena,
-                roles: [{ role: categoria, db: 'CineCampus' }]
+            await this.db.command({
+                createUser: nuevoUsuario.nickname, // * Crea un nuevo usuario en el sistema con el nickname proporcionado
+                pwd: nuevoUsuario.contrasena, // * Asigna la contraseña del nuevo usuario
+                roles: [{ role: nuevoUsuario.categoria, db: 'CineCampus' }] // * Asigna el rol basado en la categoría del nuevo usuario
             });
 
-            return { status: 'Success', mensaje: 'Usuario creado correctamente.', data: resultado }; // * Retorna éxito si el usuario fue creado correctamente
-        } catch (error) {
-            let [status, mensaje] = error.message.split(": "); // * Divide el mensaje de error para retornar un objeto estructurado
-            return { status: status || 'Error', mensaje: mensaje || 'Error desconocido' }; // * Retorna el estado y el mensaje del error
+            return { status: 'Success', mensaje: 'Usuario creado correctamente.', data: resultado }; // * Retorna éxito y los datos del resultado
+        } catch (error) { // ! Maneja errores que puedan ocurrir durante la creación del usuario
+            return { status: 'Error', mensaje: error.message || 'Error desconocido' }; // * Retorna un mensaje de error si ocurre un problema
         }
     }
 
     /**
-     * Obtiene el descuento aplicable basado en la categoría del usuario.
+     * * Obtiene los detalles de un usuario específico.
      * 
-     * @param {string} categoria - La categoría del usuario.
-     * @returns {number} El porcentaje de descuento aplicable.
-     */
-    obtenerDescuentoPorCategoria(categoria) {
-        switch (categoria) { // * Calcula el descuento según la categoría del usuario
-            case 'Administrador':
-                return 20; // * Descuento del 20% para administradores
-            case 'Usuario Estándar':
-                return 30; // * Descuento del 30% para usuarios estándar
-            case 'Usuario VIP':
-                return 45; // * Descuento del 45% para usuarios VIP
-            default:
-                return 0; // * Retorna 0 si la categoría no es válida
-        }
-    }
-
-    /**
-     * Obtiene la información detallada de un usuario por su ID.
-     * 
-     * @param {string} id - El ID del usuario.
-     * @returns {Object} Objeto que contiene los detalles del usuario.
+     * @param {string} id - ID del usuario cuyo detalle se quiere obtener.
+     * @returns {Promise<Object>} Un objeto con el estado de la operación, un mensaje y los detalles del usuario.
      */
     async obtenerDetallesUsuario(id) {
         try {
-            if (!id) {
-                return { status: 'Error', mensaje: 'ID no proporcionado.' }; // /! Retorna un error si no se proporciona un ID
-            }
-
-            const cliente = await this.collection.findOne({ _id: new ObjectId(id) }); // * Busca al cliente por su ID
-
-            if (!cliente) { // ? Verifica si el cliente existe
-                return { status: 'Not Found', mensaje: 'Cliente no encontrado.' }; // /! Retorna un error si no se encuentra el cliente
-            }
+            await validateClientId(id, this); // * Valida el ID del cliente usando la función importada
+            const cliente = await this.collection.findOne({ _id: new ObjectId(id) }); // * Busca el cliente en la colección por su ID
 
             return {
-                status: 'Success',
-                mensaje: 'Detalles del usuario obtenidos correctamente.', // * Retorna éxito con los detalles del usuario si se encuentra
+                status: 'Success', // * Retorna éxito si se encuentran los detalles del usuario
+                mensaje: 'Detalles del usuario obtenidos correctamente.',
                 data: {
-                    nombre: cliente.nombre,
-                    apellido: cliente.apellido,
-                    nickname: cliente.nickname,
-                    email: cliente.email,
-                    telefono: cliente.telefono,
-                    categoria: cliente.categoria,
-                    descuento: cliente.descuento,
-                    tarjetas: JSON.stringify(cliente.tarjeta, null, 2) // * Retorna las tarjetas del cliente en formato JSON
+                    nombre: cliente.nombre, // * Nombre del cliente
+                    apellido: cliente.apellido, // * Apellido del cliente
+                    nickname: cliente.nickname, // * Nickname del cliente
+                    email: cliente.email, // * Correo electrónico del cliente
+                    telefono: cliente.telefono, // * Número de teléfono del cliente
+                    categoria: cliente.categoria, // * Categoría del cliente
+                    descuento: cliente.descuento, // * Descuento asignado al cliente
+                    tarjetas: JSON.stringify(cliente.tarjeta, null, 2) // * Tarjetas asociadas al cliente, formateadas como JSON
                 }
             };
-        } catch (error) {
-            return { status: 'Error', mensaje: error.message || 'Error inesperado' }; // * Retorna un error en caso de excepción
+        } catch (error) { // ! Maneja errores que puedan ocurrir durante la obtención de detalles
+            return { status: 'Error', mensaje: error.message || 'Error inesperado' }; // * Retorna un mensaje de error si ocurre un problema
         }
     }
 
     /**
-     * Actualiza el rol de un usuario.
+     * * Actualiza el rol de un usuario específico.
      * 
-     * @param {ObjectId} id - ID del usuario.
-     * @param {string} nuevoRol - Nuevo rol del usuario.
-     * @returns {Promise<Object>} Objeto con el estado y el mensaje de la actualización.
+     * @param {string} id - ID del usuario cuyo rol se quiere actualizar.
+     * @param {string} nuevoRol - El nuevo rol que se asignará al usuario.
+     * @returns {Promise<Object>} Un objeto con el estado de la actualización y un mensaje.
      */
     async actualizarRolUsuario(id, nuevoRol) {
         try {
-            const rolesValidos = ['Administrador', 'Usuario Estándar', 'Usuario VIP']; // * Define los roles válidos
-            if (!rolesValidos.includes(nuevoRol)) {
-                return { status: 'Error', mensaje: 'Rol no válido.' }; // /! Retorna un error si el nuevo rol no es válido
-            }
-
-            const user = await this.collection.findOne({ _id: new ObjectId(id) }); // * Busca al usuario por su ID
-            if (!user) {
-                return { status: 'Not Found', mensaje: 'Cliente no encontrado.' }; // /! Retorna un error si no se encuentra el usuario
-            }
-
-            const resultado = await this.collection.updateOne( // * Actualiza el rol del usuario en la colección
-                { _id: new ObjectId(id) },
-                { $set: { categoria: nuevoRol } }
+            validateUserRole(nuevoRol); // * Valida el nuevo rol usando la función importada
+            await validateClientId(id, this); // * Valida el ID del cliente usando la función importada
+            
+            const resultado = await this.collection.updateOne(
+                { _id: new ObjectId(id) }, // * Filtra el cliente por su ID
+                { $set: { categoria: nuevoRol } } // * Actualiza la categoría del cliente con el nuevo rol
             );
 
-            if (resultado.matchedCount === 0) { // ? Verifica si se encontró al usuario para actualizar
-                return { status: 'Not Found', mensaje: 'Cliente no encontrado.' }; // /! Retorna un error si no se encuentra el usuario
-            }
-
-            const updateResult = await this.db.command({ // * Actualiza el rol del usuario en la base de datos
-                updateUser: user.nickname,
-                roles: [{ role: nuevoRol, db: 'CineCampus' }]
+            const updateResult = await this.db.command({
+                updateUser: (await this.collection.findOne({ _id: new ObjectId(id) })).nickname, // * Obtiene el nickname del usuario para actualizarlo
+                roles: [{ role: nuevoRol, db: 'CineCampus' }] // * Actualiza el rol del usuario en la base de datos
             });
 
-            return { status: 'Success', mensaje: 'Rol actualizado correctamente.', data: updateResult }; // * Retorna éxito si el rol fue actualizado correctamente
-        } catch (error) {
-            let [status, mensaje] = `${error}`.split(": "); // * Divide el mensaje de error para retornar un objeto estructurado
-            return { status, mensaje }; // * Retorna el estado y el mensaje del error
+            return { status: 'Success', mensaje: 'Rol actualizado correctamente.', data: updateResult }; // * Retorna éxito y los datos del resultado
+        } catch (error) { // ! Maneja errores que puedan ocurrir durante la actualización del rol
+            return { status: 'Error', mensaje: error.message }; // * Retorna un mensaje de error si ocurre un problema
         }
     }
 }
 
-module.exports = Clientes; // * Exporta la clase 'Clientes' para su uso en otros módulos
+module.exports = Clientes; // * Exporta la clase Clientes para ser utilizada en otras partes de la aplicación

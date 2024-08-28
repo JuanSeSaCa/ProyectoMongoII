@@ -1,32 +1,44 @@
-// Importa el modelo de Boletas desde la ruta especificada.
-// Asegúrate de que la ruta es correcta para evitar errores al importar el módulo.
-const Boletas = require('../model/boletosModel.js'); 
+const Boletas = require('../model/boletosModel'); // * Importa el modelo de Boletas desde el archivo boletasModel.js. Asegúrate de que la ruta es correcta
 
-/** 
- * @description Función para listar todas las boletas.
- * @async Esta función es asíncrona debido al uso de `await`.
- * @param {Object} req - El objeto de solicitud (request) de Express.
- * @param {Object} res - El objeto de respuesta (response) de Express.
+/**
+ * * Controlador para manejar las operaciones relacionadas con los boletos.
+ * 
+ * @class
  */
-const getBoletas = async (req, res) => {
-    // Crea una nueva instancia del modelo Boletas.
-    const boletasModel = new Boletas();
-    
-    try {
-        // Usa el método findBoletas() del modelo para obtener todas las boletas.
-        const boletas = await boletasModel.findBoletas();
-        
-        // Si la operación es exitosa, responde con un estado 200 y la lista de boletas en formato JSON.
-        res.status(200).json(boletas);
-    } catch (error) {
-        // Si ocurre un error, responde con un estado 500 y un mensaje de error en formato JSON.
-        res.status(500).json({ status: 'Error', mensaje: error.message });
+class BoletasController {
+    /**
+     * * Obtiene todas las boletas.
+     * 
+     * @param {Object} req - Objeto de solicitud de Express.
+     * @param {Object} res - Objeto de respuesta de Express.
+     */
+    static async getBoletas(req, res) {
+        const boletasModel = new Boletas(); // * Crea una instancia del modelo Boletas
+        try {
+            const boletas = await boletasModel.findBoletas(); // * Llama al método findBoletas del modelo para obtener todas las boletas
+            res.status(200).json(boletas); // * Devuelve un estado 200 y la lista de boletas en formato JSON
+        } catch (error) {
+            res.status(500).json({ status: 'Error', mensaje: error.message }); // ! Devuelve un error 500 y el mensaje de error si ocurre una excepción
+        }
     }
-};
 
-// Exporta la función getBoletas para que pueda ser utilizada en otros módulos.
-module.exports = {
-    getBoletas
-};
+    /**
+     * * Crea un nuevo boleto.
+     * 
+     * @param {Object} req - Objeto de solicitud de Express.
+     * @param {Object} res - Objeto de respuesta de Express.
+     */
+    static async createBoleto(req, res) {
+        const boletasModel = new Boletas(); // * Crea una instancia del modelo Boletas
+        try {
+            const params = req.body; // * Obtiene los datos del cuerpo de la solicitud
+            const nuevoBoleto = await boletasModel.crearBoleto(params); // * Llama al método crearBoleto del modelo para crear un nuevo boleto con los datos proporcionados
+            res.status(201).json(nuevoBoleto); // * Devuelve un estado 201 y el nuevo boleto en formato JSON
+        } catch (error) {
+            res.status(500).json({ status: 'Error', mensaje: error.message }); // ! Devuelve un error 500 y el mensaje de error si ocurre una excepción
+        }
+    }
+}
 
- 
+// * Exporta la clase BoletasController para que pueda ser utilizada en otras partes de la aplicación
+module.exports = BoletasController;

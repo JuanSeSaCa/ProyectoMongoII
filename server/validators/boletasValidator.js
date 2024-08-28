@@ -22,20 +22,27 @@ const boletaDetailsValidationRules = () => {
  */
 const createBoletaValidationRules = () => {
     return [
-        // Validación del campo 'evento' en el cuerpo de la solicitud
-        body('evento')
-            // Verifica que el campo 'evento' no esté vacío
-            .notEmpty().withMessage('El nombre de la pelicula es requerido')
-            // Verifica que el campo 'evento' sea una cadena de caracteres
-            .isString().withMessage('El nombre de la pelicula debe ser una cadena de caracteres'),
-        
-        // Validación del campo 'fecha' en el cuerpo de la solicitud
-        body('fecha')
-            // Verifica que el campo 'fecha' no esté vacío
-            .notEmpty().withMessage('La fecha es requerida')
-            // Verifica que el campo 'fecha' sea una fecha válida en formato ISO 8601
-            .isISO8601().withMessage('La fecha debe ser una fecha válida en formato ISO 8601')
+        body('_id_cliente') // * Valida el campo '_id_cliente'
+            .notEmpty().withMessage('El ID del cliente es requerido') // * Asegura que el campo no esté vacío y muestra un mensaje de error si lo está
+            .isMongoId().withMessage('El ID del cliente debe ser un identificador MongoDB válido'), // * Verifica que el campo sea un identificador MongoDB válido
+    
+        body('id_pelicula') // * Valida el campo 'id_pelicula'
+            .notEmpty().withMessage('El ID de la película es requerido') // * Asegura que el campo no esté vacío y muestra un mensaje de error si lo está
+            .isMongoId().withMessage('El ID de la película debe ser un identificador MongoDB válido'), // * Verifica que el campo sea un identificador MongoDB válido
+    
+        body('id_sala') // * Valida el campo 'id_sala'
+            .notEmpty().withMessage('El ID de la sala es requerido') // * Asegura que el campo no esté vacío y muestra un mensaje de error si lo está
+            .isMongoId().withMessage('El ID de la sala debe ser un identificador MongoDB válido'), // * Verifica que el campo sea un identificador MongoDB válido
+    
+        body('Date_compra') // * Valida el campo 'Date_compra'
+            .notEmpty().withMessage('La fecha de compra es requerida') // * Asegura que el campo no esté vacío y muestra un mensaje de error si lo está
+            .isISO8601().withMessage('La fecha de compra debe ser una fecha válida en formato ISO 8601'), // * Verifica que el campo sea una fecha válida en formato ISO 8601
+    
+        body('asiento_reservado') // * Valida el campo 'asiento_reservado'
+            .notEmpty().withMessage('El código del asiento es requerido') // * Asegura que el campo no esté vacío y muestra un mensaje de error si lo está
+            .isString().withMessage('El código del asiento debe ser una cadena de caracteres') // * Verifica que el campo sea una cadena de caracteres
     ];
+    
 };
 
 // Exporta las funciones de validación para ser utilizadas en otras partes de la aplicación

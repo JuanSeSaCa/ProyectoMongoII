@@ -1,5 +1,5 @@
 // Importa el modelo de Funciones desde la ruta especificada.
-const Funciones = require('../model/funcionesModel.js');
+const Funciones = require('../model/funcionesModel');
 
 /**
  * @description Lista todas las funciones de cine disponibles.

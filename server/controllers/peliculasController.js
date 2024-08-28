@@ -1,4 +1,4 @@
-const Peliculas = require('../model/peliculasModel.js'); // Importa el modelo de películas
+const Peliculas = require('../model/peliculasModel'); // Importa el modelo de películas
 
 /**
  * * Lista todas las películas.

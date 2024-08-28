@@ -1,4 +1,4 @@
-const Peliculas = require("./model/peliculasModel.js").Peliculas;
+//const Peliculas = require("./model/peliculasModel.js").Peliculas;
 // const Funciones = require("./model/funcionesModel.js").Funciones;
 // const Clientes = require("./model/clientesModel.js").Clientes;
 // const Asientos = require("./model/asientosModel.js").Asientos;
@@ -6,10 +6,10 @@ const Peliculas = require("./model/peliculasModel.js").Peliculas;
 
 
 // //* Instanciar el objeto Peliculas
- let pelicula = new Peliculas();
+ //let pelicula = new Peliculas();
 
 // //* Obtener todas las películas disponibles
- pelicula.getAllFilmsAvailable().then(console.log);
+ //pelicula.getAllFilmsAvailable().then(console.log);
 
 // //* Obtener detalles de una película específica por ID
  // pelicula.getAllDetailsFilms({id:'66a6cdd3a7ff449f3519ecd6'}).then(console.log);

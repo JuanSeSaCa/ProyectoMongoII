@@ -1,4 +1,4 @@
-const Connect = require("../index.js"); // * Importa la clase base 'Connect' desde el archivo '../index.js'
+const Connect = require("../index"); // * Importa la clase base 'Connect' desde el archivo '../index.js'
 
 /**
  * Clase `Lugares`
