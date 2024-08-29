@@ -1,5 +1,5 @@
 // Importa el modelo de Asientos desde la ruta especificada.
-const Asientos = require('../model/asientosModel');
+const Asientos = require('../../server/model/asientosModel');
 
 /**
  * @description Función para listar todos los asientos disponibles según los criterios proporcionados.

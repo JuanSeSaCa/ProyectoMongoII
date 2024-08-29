@@ -1,4 +1,4 @@
-const Boletas = require('../model/boletosModel'); // * Importa el modelo de Boletas desde el archivo boletasModel.js. Asegúrate de que la ruta es correcta
+const Boletas = require('../../server/model/boletosModel'); // * Importa el modelo de Boletas desde el archivo boletasModel.js. Asegúrate de que la ruta es correcta
 
 /**
  * * Controlador para manejar las operaciones relacionadas con los boletos.

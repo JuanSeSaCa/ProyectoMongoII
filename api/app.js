@@ -10,7 +10,7 @@ const {
     clientesRouter, 
     funcionesRouter, 
     salasRouter 
-} = require("./server/router");
+} = require("./router");
 
 // * Middleware para parsear JSON
 app.use(express.json());

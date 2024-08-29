@@ -1,5 +1,5 @@
 // Importa el modelo de Clientes desde la ruta especificada.
-const Clientes = require('../model/clientesModel');
+const Clientes = require('../../server/model/clientesModel');
 
 /**
  * @description Lista todos los clientes en la base de datos.

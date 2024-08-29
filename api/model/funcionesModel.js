@@ -6,7 +6,7 @@ const {
     asegurarAsientosDisponibles,
     asegurarAsientosParaReservar,
     asegurarAsientosParaCancelar,
-} = require("../dto/funcionesDto.js"); // * Importa funciones de validación desde DTOs relacionados con funciones
+} = require("../../api/dto/funcionesDto.js"); // * Importa funciones de validación desde DTOs relacionados con funciones
 
 /**
  * * Clase `Funciones`
