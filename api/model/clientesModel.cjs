@@ -1,6 +1,6 @@
 const Connect = require("../index.js"); // * Importa la clase base Connect que maneja la conexión a la base de datos
 const { ObjectId } = require("mongodb"); // * Importa ObjectId desde el paquete mongodb para manejar identificadores de documentos
-const { validateClientId, validateNewUser, validateVIPCard, validateUserRole } = require("../../api/dto/clientesDto.js"); // * Importa funciones de validación y verificación desde DTOs relacionados con clientes
+const { validateClientId, validateNewUser, validateVIPCard, validateUserRole } = require("../dto/clientesDto.js"); // * Importa funciones de validación y verificación desde DTOs relacionados con clientes
 
 /**
  * * Clase `Clientes`
