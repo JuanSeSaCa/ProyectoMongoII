@@ -2,19 +2,19 @@ const express = require('express');
 const { validationResult } = require('express-validator');
 
 // Importar controladores
-const peliculasController = require('./controllers/peliculasController.js');
-const asientosController = require('./controllers/asientosController.js');
-const boletasController = require('./controllers/boletasController.js');
-const clientesController = require('./controllers/clientesController.js');
-const funcionesController = require('./controllers/funcionesController.js');
-const lugaresController = require('./controllers/lugaresController.js');
+const peliculasController = require('./controllers/peliculasController.cjs');
+const asientosController = require('./controllers/asientosController.cjs');
+const boletasController = require('./controllers/boletasController.cjs');
+const clientesController = require('./controllers/clientesController.cjs');
+const funcionesController = require('./controllers/funcionesController.cjs');
+const lugaresController = require('./controllers/lugaresController.cjs');
 
 // Importar validadores
 const peliculasValidator = require('./validators/peliculasValidator.cjs');
-const asientosValidator = require('./validators/asientosValidator.cjs');
+const asientosValidator = require('./validators/asientosValidator');
 const funcionesValidator = require('./validators/funcionesValidator.cjs');
 const clientesValidator = require('./validators/clientesValidator.cjs');
-
+const boletasValidator = require('./validators/boletasValidator.cjs');
 // Verifica que todo se ha importado correctamente
 // console.log('Peliculas Controller:', peliculasController);
 // console.log('Asientos Controller:', asientosController);

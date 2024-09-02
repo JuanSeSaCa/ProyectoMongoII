@@ -1,4 +1,4 @@
-const Connect = require("../index.js"); // * Importa la clase base Connect para manejar la conexión a la base de datos
+const Connect = require("../index.cjs"); // * Importa la clase base Connect para manejar la conexión a la base de datos
 const { ObjectId } = require("mongodb"); // * Importa ObjectId desde el paquete mongodb para manejar identificadores de documentos
 const {
     asegurarFuncionExiste,
@@ -6,7 +6,7 @@ const {
     asegurarAsientosDisponibles,
     asegurarAsientosParaReservar,
     asegurarAsientosParaCancelar,
-} = require("../dto/funcionesDto.js"); // * Importa funciones de validación desde DTOs relacionados con funciones
+} = require("../dto/funcionesDto.cjs"); // * Importa funciones de validación desde DTOs relacionados con funciones
 
 /**
  * * Clase `Funciones`

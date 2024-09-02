@@ -16,12 +16,12 @@ class Connect {
     // * Constructor de la clase
     constructor() {
         // * Asignación de valores desde las variables de entorno
-        this.user = process.env.MONGO_USER;        // Usuario desde variable de entorno
-        this.port = process.env.MONGO_PORT;        // Puerto desde variable de entorno
-        this.setPass = process.env.MONGO_PWD;      // Contraseña desde variable de entorno
-        this.setHost = process.env.MONGO_HOST;     // Host desde variable de entorno
-        this.setCluster = process.env.MONGO_CLUSTER; // Cluster desde variable de entorno
-        this.setDbName = process.env.MONGO_DB;     // Nombre de la base de datos desde variable de entorno
+        this.user = process.env.VITE_MONGO_USER;        // Usuario desde variable de entorno
+        this.port = process.env.VITE_MONGO_PORT;        // Puerto desde variable de entorno
+        this.setPass = process.env.VITE_MONGO_PWD;      // Contraseña desde variable de entorno
+        this.setHost = process.env.VITE_MONGO_HOST;     // Host desde variable de entorno
+        this.setCluster = process.env.VITE_MONGO_CLUSTER; // Cluster desde variable de entorno
+        this.setDbName = process.env.VITE_MONGO_DB;     // Nombre de la base de datos desde variable de entorno
 
         // * Apertura de la conexión a la base de datos
         this.#open();

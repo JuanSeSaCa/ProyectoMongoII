@@ -1,6 +1,6 @@
 const express = require("express");
-const path = require('path');
 const app = express();
+const cors = require ('cors');
 
 // * Importar los routers desde router.js
 const { 
@@ -15,10 +15,10 @@ const {
 // * Middleware para parsear JSON
 app.use(express.json());
 
-// * Middleware para servir archivos estáticos
-app.use('/css', express.static(path.join(__dirname, process.env.EXPRESS_STATIC, 'css'))); // ? Sirve archivos CSS
-app.use('/js', express.static(path.join(__dirname, process.env.EXPRESS_STATIC, 'js'))); // ? Sirve archivos JavaScript
-app.use('/storage', express.static(path.join(__dirname, process.env.EXPRESS_STATIC, 'storage'))); // ? Sirve archivos de almacenamiento
+// // * Middleware para servir archivos estáticos
+// app.use('/css', express.static(path.join(__dirname, process.env.EXPRESS_STATIC, 'css'))); // ? Sirve archivos CSS
+// app.use('/js', express.static(path.join(__dirname, process.env.EXPRESS_STATIC, 'js'))); // ? Sirve archivos JavaScript
+// app.use('/storage', express.static(path.join(__dirname, process.env.EXPRESS_STATIC, 'storage'))); // ? Sirve archivos de almacenamiento
 
 // * Rutas de la API
 app.use('/api/peliculas', peliculasRouter); // ? Rutas relacionadas con películas
@@ -42,8 +42,8 @@ app.use((req, res) => {
 
 // * Configuración del servidor
 const config = {
-    port: process.env.EXPRESS_PORT, // ? Puerto del servidor
-    host: process.env.EXPRESS_HOST  // ? Host del servidor
+    port: process.env.VITE_PORT_BACKEND, // ? Puerto del servidor
+    host: process.env.VITE_HOST  // ? Host del servidor
 };
 
 // * Iniciar el servidor

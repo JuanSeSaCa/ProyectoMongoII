@@ -1,5 +1,6 @@
 const { ObjectId } = require("mongodb"); // * Importa 'ObjectId' de la librería 'mongodb'
 const Connect = require("../index"); // * Importa la clase base 'Connect' desde el archivo '../index'
+const { validateFilmId } = require("../dto/peliculasDto");
 
 /**
  * Clase `Peliculas`
