@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './seatSelector.css'; // * Importando el archivo CSS
+import { useNavigate } from 'react-router-dom'; 
+import './style/seatSelector.css'; // * Importando el archivo CSS
 
 const SeatSelector = () => {
   // * Estados para gestionar la selección de asientos, fecha y hora
@@ -94,217 +95,216 @@ const SeatSelector = () => {
     return finalPrice * selectedSeats.length; // Calcular total
   };
 
+  
+  const HeaderBack = ({ header, onBack }) => {
+    return (
+      <div className="header__back__2">
+        <i onClick={onBack} className="bx bx-chevron-left"></i>
+        <h3 style={{ color: '#FFFF' }}>{header}</h3>
+        <i className="bi bi-three-dots-vertical"></i>
+      </div>
+    );
+  };
+
   return (
     <section className="asientos">
-      <form id="myform" onSubmit={handleSubmit}>
-        {/* * Selección de asientos e indicador de pantalla */}
-        <div className="seat-selection">
-          <div className="nav">
-            <span className="back-arrow">&lt;</span>
-            <span className="title">Elegir Asiento</span>
-            <span className="menu">...</span>
-          </div>
-          <div className="screen-indicator">
-            <img
-              src="./assets/image.png"
-              alt="Indicador de Pantalla"
-              style={{ width: '250px', height: 'auto', maxWidth: '100%', marginTop: '15px' }}
-            />
-            <div className="screen-text">Pantalla Aquí</div>
-          </div>
+    <form id="myform" onSubmit={handleSubmit}>
+      <div className="seat-selection">
+        <HeaderBack header="Choose Seat" onBack={() => navigate(-1)} /> {/* Cambiado a navigate(-1) */}
+        <div className="screen-indicator">
+          <img
+            src="/vector.png"
+            alt="Screen Indicator"
+            style={{ width: '375px', height: 'auto', maxWidth: '100%' }}
+          />
+          <div className="screen-text">Screen This Way</div>
         </div>
-
-        {/* * Sección de asientos normales */}
-        <article className="asientos__normal">
-          {/* Asientos en la fila A */}
-          <div fila="1">
-            <small>A</small>
-            <div className="asientos__lista">
-              {["A1", "A2", "A3", "A4", "A5"].map(seat => (
-                <div key={seat}>
-                  <input
-                    type="checkbox"
-                    name="seat"
-                    value={seat}
-                    id={seat}
-                    onChange={handleSeatChange}
-                  />
-                  <label htmlFor={seat} data-place={seat.slice(1)}></label>
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* Asientos en la fila B */}
-          <div fila="2">
-            <small>B</small>
-            <div className="asientos__lista">
-              {["B1", "B2", "B3", "B4", "B5", "B6", "B7"].map(seat => (
-                <div key={seat}>
-                  <input
-                    type="checkbox"
-                    name="seat"
-                    value={seat}
-                    id={seat}
-                    onChange={handleSeatChange}
-                  />
-                  <label htmlFor={seat} data-place={seat.slice(1)}></label>
-                </div>
-              ))}
-            </div>
-          </div>
-        </article>
-
-        {/* * Sección de asientos preferenciales */}
-        <article className="asientos__preferenciales">
-          {/* Asientos en las filas C a F */}
-          {/* Fila C */}
-          <div colum="3">
-            <small>C</small>
-            <div>
-              {["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9"].map(seat => (
-                <div key={seat}>
-                  <input
-                    type="checkbox"
-                    name="seat"
-                    value={seat}
-                    id={seat}
-                    onChange={handleSeatChange}
-                  />
-                  <label htmlFor={seat} data-place={seat.slice(1)}></label>
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* Fila D */}
-          <div colum="4">
-            <small>D</small>
-            <div>
-              {["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9"].map(seat => (
-                <div key={seat}>
-                  <input
-                    type="checkbox"
-                    name="seat"
-                    value={seat}
-                    id={seat}
-                    onChange={handleSeatChange}
-                  />
-                  <label htmlFor={seat} data-place={seat.slice(1)}></label>
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* Fila E */}
-          <div colum="5">
-            <small>E</small>
-            <div>
-              {["E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9"].map(seat => (
-                <div key={seat}>
-                  <input
-                    type="checkbox"
-                    name="seat"
-                    value={seat}
-                    id={seat}
-                    onChange={handleSeatChange}
-                  />
-                  <label htmlFor={seat} data-place={seat.slice(1)}></label>
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* Fila F */}
-          <div colum="6">
-            <small>F</small>
-            <div>
-              {["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9"].map(seat => (
-                <div key={seat}>
-                  <input
-                    type="checkbox"
-                    name="seat"
-                    value={seat}
-                    id={seat}
-                    onChange={handleSeatChange}
-                  />
-                  <label htmlFor={seat} data-place={seat.slice(1)}></label>
-                </div>
-              ))}
-            </div>
-          </div>
-        </article>
-
-        {/* * Leyenda de categorías de asientos */}
-        <div className="categorias-asientos">
-          <div>
-            <span className="disponible"></span> Disponible
-          </div>
-          <div>
-            <span className="seleccionado"></span> Seleccionado
-          </div>
-          <div>
-            <span className="ocupado"></span> Ocupado
-          </div>
-        </div>
-
-        {/* * Sección de selección de fecha y hora */}
-        <article className="seleccion-fecha-hora">
-          {/* Selector de fecha */}
-          <div
-            className="carrusel-fecha"
-            ref={dateCarouselRef}
-            onMouseDown={(e) => handleDragStart(e, dateCarouselRef)}
-            onMouseMove={(e) => handleDragMove(e, dateCarouselRef)}
-            onMouseUp={() => handleDragEnd(dateCarouselRef)}
-            onMouseLeave={() => handleDragEnd(dateCarouselRef)}
-            onTouchStart={(e) => handleDragStart(e, dateCarouselRef)}
-            onTouchMove={(e) => handleDragMove(e, dateCarouselRef)}
-            onTouchEnd={() => handleDragEnd(dateCarouselRef)}
-          >
-            {getNext7Days().map(date => (
-              <div
-                key={date.key}
-                className={`item-fecha ${selectedDate === date.key ? 'activo' : ''}`}
-                onClick={() => handleDateSelect(date.key)}
-              >
-                <span>{date.day}</span>
-                <span>{date.date}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Selector de hora */}
-          <div
-            className="carrusel-hora"
-            ref={timeCarouselRef}
-            onMouseDown={(e) => handleDragStart(e, timeCarouselRef)}
-            onMouseMove={(e) => handleDragMove(e, timeCarouselRef)}
-            onMouseUp={() => handleDragEnd(timeCarouselRef)}
-            onMouseLeave={() => handleDragEnd(timeCarouselRef)}
-            onTouchStart={(e) => handleDragStart(e, timeCarouselRef)}
-            onTouchMove={(e) => handleDragMove(e, timeCarouselRef)}
-            onTouchEnd={() => handleDragEnd(timeCarouselRef)}
-          >
-            {times.map(time => (
-              <div
-                key={time.time}
-                className={`item-hora ${selectedTime === time.time ? 'activo' : ''}`}
-                onClick={() => handleTimeSelect(time.time)}
-              >
-                <span>{time.time}</span>
-                <span>{time.type}</span>
-                <span>${time.price.toLocaleString('es-ES')}</span>
-              </div>
-            ))}
-          </div>
-        </article>
-
-        {/* * Botón para enviar el formulario */}
-        <button type="submit">Reservar Asientos</button>
-      </form>
-
-      {/* * Muestra el precio total */}
-      <div className="total">
-        <h3>Total a Pagar: ${calculateTotalPrice().toLocaleString('es-ES')}</h3>
       </div>
-    </section>
+      <article className="asientos__normal">
+        <div data-fila="1">
+          <small>A</small>
+          <div className="asientos__lista">
+            {["A1", "A2", "A3", "A4", "A5"].map(seat => (
+              <div key={seat}>
+                <input
+                  type="checkbox"
+                  name="seat"
+                  value={seat}
+                  id={seat}
+                  onChange={handleSeatChange}
+                />
+                <label htmlFor={seat} data-place={seat.slice(1)}></label>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div data-fila="2">
+          <small>B</small>
+          <div className="asientos__lista">
+            {["B1", "B2", "B3", "B4", "B5", "B6", "B7"].map(seat => (
+              <div key={seat}>
+                <input
+                  type="checkbox"
+                  name="seat"
+                  value={seat}
+                  id={seat}
+                  onChange={handleSeatChange}
+                />
+                <label htmlFor={seat} data-place={seat.slice(1)}></label>
+              </div>
+            ))}
+          </div>
+        </div>
+      </article>
+      <article className="asientos__preferenciales">
+        <div data-colum="3">
+          <small>C</small>
+          <div>
+            {["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9"].map((seat) => (
+              <div key={seat}>
+                <input
+                  type="checkbox"
+                  name="seat"
+                  value={seat}
+                  id={seat}
+                  onChange={handleSeatChange}
+                />
+                <label htmlFor={seat} data-place={seat.slice(1)}></label>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div data-colum="4">
+          <small>D</small>
+          <div>
+            {["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9"].map(seat => (
+              <div key={seat}>
+                <input
+                  type="checkbox"
+                  name="seat"
+                  value={seat}
+                  id={seat}
+                  onChange={handleSeatChange}
+                />
+                <label htmlFor={seat} data-place={seat.slice(1)}></label>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div data-colum="5">
+          <small>E</small>
+          <div>
+            {["E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9"].map(seat => (
+              <div key={seat}>
+                <input
+                  type="checkbox"
+                  name="seat"
+                  value={seat}
+                  id={seat}
+                  onChange={handleSeatChange}
+                />
+                <label htmlFor={seat} data-place={seat.slice(1)}></label>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div data-colum="6">
+          <small>F</small>
+          <div>
+            {["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9"].map(seat => (
+              <div key={seat}>
+                <input
+                  type="checkbox"
+                  name="seat"
+                  value={seat}
+                  id={seat}
+                  onChange={handleSeatChange}
+                />
+                <label htmlFor={seat} data-place={seat.slice(1)}></label>
+              </div>
+            ))}
+          </div>
+        </div>
+      </article>
+      <article className="asientos__menu">
+        <div className="asientos__menu-item">
+          <span className="circle available"></span> <label>Available</label>
+        </div>
+        <div className="asientos__menu-item">
+          <span className="circle reserved"></span> <label>Reserved</label>
+        </div>
+        <div className="asientos__menu-item">
+          <span className="circle selected"></span> <label>Selected</label>
+        </div>
+      </article>
+
+      {/* Date Carousel */}
+      <div
+        className="carousel-container"
+        ref={dateCarouselRef}
+        onMouseDown={(e) => handleDragStart(e, dateCarouselRef)}
+        onMouseLeave={() => handleDragEnd(dateCarouselRef)}
+        onMouseUp={() => handleDragEnd(dateCarouselRef)}
+        onMouseMove={(e) => handleDragMove(e, dateCarouselRef)}
+        onTouchStart={(e) => handleDragStart(e, dateCarouselRef)}
+        onTouchEnd={() => handleDragEnd(dateCarouselRef)}
+        onTouchMove={(e) => handleDragMove(e, dateCarouselRef)}
+      >
+        <div className="date-carousel">
+          {getNext7Days().map((dayInfo) => (
+            <div
+              key={dayInfo.key}
+              className={`date-card ${selectedDate === dayInfo.key ? 'selected' : ''}`}
+              onClick={() => handleDateSelect(dayInfo.key)}
+            >
+              <div className="day">{dayInfo.day}</div>
+              <div className="date">{dayInfo.date}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Time and Price Carousel */}
+      <div
+        className="carousel-container"
+        ref={timeCarouselRef}
+        onMouseDown={(e) => handleDragStart(e, timeCarouselRef)}
+        onMouseLeave={() => handleDragEnd(timeCarouselRef)}
+        onMouseUp={() => handleDragEnd(timeCarouselRef)}
+        onMouseMove={(e) => handleDragMove(e, timeCarouselRef)}
+        onTouchStart={(e) => handleDragStart(e, timeCarouselRef)}
+        onTouchEnd={() => handleDragEnd(timeCarouselRef)}
+        onTouchMove={(e) => handleDragMove(e, timeCarouselRef)}
+      >
+        <div className="time-carousel">
+          {times.map((item) => (
+            <div
+              key={item.time}
+              className={`time-price-card ${selectedTime === item.time ? 'selected' : ''}`}
+              onClick={() => handleTimeSelect(item.time)}
+            >
+              <div className="time">{item.time}</div>
+              <div className="price">
+                {"$" + item.price + " COP"}
+                <br />
+                <span className="type">{item.type}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Ticket Purchase Section */}
+      <div className="ticket-purchase">
+        <div className="price-info">
+          <div className="label">Price</div>
+          <div className="total-price">$ {calculateTotalPrice()} COP</div>
+        </div>
+        <button type="submit" className="buy-ticket-button">Buy Ticket</button>
+      </div>
+
+    </form>
+  </section>
   );
 };
 
