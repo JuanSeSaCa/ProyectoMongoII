@@ -1,4 +1,4 @@
-const Connect = require("../index.js");
+const Connect = require("../index.cjs");
 const { ObjectId } = require("mongodb");
 
 /**

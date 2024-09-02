@@ -10,10 +10,10 @@ const funcionesController = require('./controllers/funcionesController.js');
 const lugaresController = require('./controllers/lugaresController.js');
 
 // Importar validadores
-const peliculasValidator = require('./validators/peliculasValidator.js');
-const asientosValidator = require('./validators/asientosValidator.js');
-const funcionesValidator = require('./validators/funcionesValidator.js');
-const clientesValidator = require('./validators/clientesValidator.js');
+const peliculasValidator = require('./validators/peliculasValidator.cjs');
+const asientosValidator = require('./validators/asientosValidator.cjs');
+const funcionesValidator = require('./validators/funcionesValidator.cjs');
+const clientesValidator = require('./validators/clientesValidator.cjs');
 
 // Verifica que todo se ha importado correctamente
 // console.log('Peliculas Controller:', peliculasController);

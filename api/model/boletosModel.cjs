@@ -1,6 +1,6 @@
-const Connect = require("../index.js"); // * Importa la clase base Connect que maneja la conexión a la base de datos
+const Connect = require("../index.cjs"); // * Importa la clase base Connect que maneja la conexión a la base de datos
 const { ObjectId } = require("mongodb"); // * Importa ObjectId desde el paquete mongodb para manejar identificadores de documentos
-const { validarEntradaBoleto, calcularPrecioTotal } = require("../dto/boletosDto.js"); // * Importa funciones de validación y cálculo de DTOs relacionados con boletos
+const { validarEntradaBoleto, calcularPrecioTotal } = require("../dto/boletosDto.cjs"); // * Importa funciones de validación y cálculo de DTOs relacionados con boletos
 
 /**
  * * Clase `Boletas`
