@@ -1,0 +1,174 @@
+
+#root>div:first-of-type {
+    max-height: 100vh;
+    max-width: 100vw;
+  }
+  
+  .movie__card {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    color: #ffff;
+  }
+  
+  #synopsis {
+    font-size: 0.9em;
+  }
+  
+  .cover {
+    width: 90%;
+    height: 60%;
+    border-radius: 15px;
+  }
+  
+  .cover iframe {
+    border-radius: 15px;
+  }
+  
+  .cover img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+  
+  .movie__overviewer {
+    display: flex;
+    width: 100%;
+  }
+  
+  .movie__overviewer div {
+    width: 100%;
+    padding-inline: 25px;
+  }
+  
+  p#synopsis {
+    padding-inline: 25px;
+  }
+  
+  .trailer__1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 120px;
+    right: 20px;
+    gap: 2px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fe0000;
+    color: #ffff;
+  }
+  
+  .trailer i {
+    font-size: 20px;
+  }
+  
+  .container_movies {
+    padding-inline: 25px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+  }
+  
+  .cast__carousel {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    gap: 0.5rem;
+    height: 4rem;
+    scrollbar-width: none;
+  }
+  
+  .actor__info {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 170px;
+  }
+  
+  .actor__info .text__box p {
+    margin: 0;
+  }
+  
+  .actor__pic {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .text__box {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7em;
+  }
+  
+  .cinema__box {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    border-radius: 10px;
+    height: 80px;
+    background-color: transparent;
+    border: 2px solid #cccccc; /* Borde inicial */
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+  }
+  
+  .cinema__box.selected {
+    border-color: #fe0000;
+    background-color: transparent;/* Cambia solo el color del borde */
+  }
+  
+  .book__ticket:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .cinema__photo {
+    width: 75px;
+    object-fit: cover;
+  }
+  
+  .cinema__overviwer {
+    padding-left: 10px;
+  }
+  
+  .book__ticket {
+    background-color: #fe0000;
+    border: none;
+    border-radius: 10px;
+    height: 45px;
+    margin-top: 15px;
+    font-size: 15px;
+    color: #ffff;
+    font-weight: bold;
+  }
+  
+  .header__back {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    height: 60px;
+    background-color: #242424;
+  }
+  
+  .header__back i:first-child {
+    font-size: 35px;
+    color: #ffff;
+  }
+  
+  i {
+    font-size: 24px;
+    color: #ffff;
+  }
