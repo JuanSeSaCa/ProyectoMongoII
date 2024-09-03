@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Sistema de gestion de compra de boletos Cinecampus",
     "main": "main.js",
-    "type": "commonjs",
+    "type": "module",
     "directories": {
         "doc": "docs"
     },

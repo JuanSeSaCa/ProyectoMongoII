@@ -1,69 +1,41 @@
-// * Importación del cliente de MongoDB
+// index.cjs
 const { MongoClient } = require("mongodb");
+require('dotenv').config();
 
-// * Clase para manejar la conexión a MongoDB
 class Connect {
-    // * Propiedades públicas
-    user;   // Usuario de MongoDB
-    port;   // Puerto de conexión
-
-    // /! Propiedades privadas (usando #)
-    #pass;      // Contraseña para la conexión a MongoDB
-    #host;      // Host del servidor de MongoDB
-    #cluster;   // Cluster de MongoDB
-    #dbName;    // Nombre de la base de datos
-
-    // * Constructor de la clase
     constructor() {
-        // * Asignación de valores desde las variables de entorno
-        this.user = process.env.VITE_MONGO_USER;        // Usuario desde variable de entorno
-        this.port = process.env.VITE_MONGO_PORT;        // Puerto desde variable de entorno
-        this.setPass = process.env.VITE_MONGO_PWD;      // Contraseña desde variable de entorno
-        this.setHost = process.env.VITE_MONGO_HOST;     // Host desde variable de entorno
-        this.setCluster = process.env.VITE_MONGO_CLUSTER; // Cluster desde variable de entorno
-        this.setDbName = process.env.VITE_MONGO_DB;     // Nombre de la base de datos desde variable de entorno
+        this.user = process.env.VITE_MONGO_USER;
+        this.pass = process.env.VITE_MONGO_PWD;
+        this.host = process.env.VITE_MONGO_HOST;
+        this.port = process.env.VITE_MONGO_PORT;
+        this.dbName = process.env.VITE_MONGO_DB;
 
-        // * Apertura de la conexión a la base de datos
-        this.#open();
+        if (!this.user || !this.pass || !this.host || !this.port || !this.dbName) {
+            throw new Error("Las variables de entorno necesarias no están configuradas correctamente.");
+        }
 
-        // * Asignación de la base de datos a la propiedad db
-        this.db = this.conexion.db(this.getDbName);
+        this.client = new MongoClient(`mongodb://${this.user}:${this.pass}@${this.host}:${this.port}/`, { useNewUrlParser: true, useUnifiedTopology: true });
     }
 
-    // * Métodos setters y getters para las propiedades privadas
-
-    set setPass(pass) { this.#pass = pass; }  // ! Establecer la contraseña de manera privada
-    set setHost(host) { this.#host = host; }  // ! Establecer el host de manera privada
-    set setCluster(cluster) { this.#cluster = cluster; }  // ! Establecer el cluster de manera privada
-    set setDbName(dbName) { this.#dbName = dbName; }  // ! Establecer el nombre de la base de datos de manera privada
-
-    get getPass() { return this.#pass; }  // ! Obtener la contraseña privada
-    get getHost() { return this.#host; }  // ! Obtener el host privado
-    get getCluster() { return this.#cluster; }  // ! Obtener el cluster privado
-    get getDbName() { return this.#dbName; }  // ! Obtener el nombre de la base de datos privada
-
-    // TODO: Método privado para abrir la conexión a la base de datos
-    async #open() {
-        // * Construcción de la URI de conexión dependiendo del usuario
-        const uri = this.user !== "mongo" 
-            ? `${this.getHost}${this.user}:${this.getPass}@${this.getCluster}:${this.port}/${this.getDbName}` 
-            : `${this.getHost}${this.user}:${this.getPass}@${this.getCluster}:${this.port}`;
-
-        // * Creación del cliente de MongoDB con la URI generada
-        this.conexion = new MongoClient(uri);
-        
-        // * Conexión al servidor de MongoDB
-        await this.conexion.connect();
-        console.log("Connected to MongoDB");
+    async connect() {
+        try {
+            await this.client.connect();
+            console.log("Conectado a MongoDB");
+            this.db = this.client.db(this.dbName);
+        } catch (error) {
+            console.error("Error al conectar a MongoDB:", error.message);
+            throw error;
+        }
     }
 
-    // * Método para cerrar la conexión a la base de datos
     async close() {
-        // * Cierra la conexión existente
-        await this.conexion.close();
-        console.log("Disconnected from MongoDB");
+        try {
+            await this.client.close();
+            console.log("Desconectado de MongoDB");
+        } catch (error) {
+            console.error("Error al desconectar de MongoDB:", error.message);
+        }
     }
 }
 
-// * Exportación de la clase Connect
 module.exports = Connect;

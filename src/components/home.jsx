@@ -9,7 +9,7 @@ const HeaderUser = () => {
   useEffect(() => {
     const userDetails = async () => {
       try {
-        const res = await axios.get('http://localhost:5174/api/clientes/66b27a3cd541a250404781dc');
+        const res = await axios.get('http://localhost:5174/api/peliculas/66a6cdd3a7ff449f3519ecd6');
         setUserName(res.data.nickname);
       } catch (error) {
         console.error('Error getting the details of the user', error);
@@ -22,10 +22,10 @@ const HeaderUser = () => {
   return (
     <div className="user__header">
       <div className="user__info">
-        <img className="user__avatar" src="../../public/handsome-confident-blond-bearded-businessman-with-hands-pockets-smiling-joyfully-give-professional-vibe-discussing-business-double-his-income-become-successful-white-background 1.svg" alt="User Avatar" />
+        <img className="user__avatar" src="../../public/handsome-confident-blond-bearded-businessman-with-hands-pockets-smiling-joyfully-give-professional-vibe-discussing-business-double-his-income-become-successful-white-background 1.svg "alt="User Avatar" />
         <div className="user__greeting">
-          <p className="user__name">Hi, {userName}</p>
-          <p className="user__message">Let's watch a movie together!</p>
+          <p className="user__name">Hola, {userName}</p>
+          <p className="user__message">¡Veamos una película juntos!</p>
         </div>
       </div>
       <div className="notification__icon">
@@ -90,7 +90,7 @@ const SearchInput = React.forwardRef((props, ref) => {
           onBlur={() => setIsFocused(false)}
           type="text"
           className="search__input"
-          placeholder="Search movie, cinema, genre..."
+          placeholder="Buscar película, genero, cinema..."
         />
       </div>
 
@@ -165,8 +165,8 @@ const MoviesCarousel = () => {
   return (
     <>
       <div className="now__playing">
-        <p>Now playing</p>
-        <p>See all</p>
+        <p>En cartelera</p>
+        <p>Ver todo</p>
       </div>
 
       <div className="movies__carousel">
@@ -218,8 +218,8 @@ const ComingSoon = () => {
   return (
     <>
       <div className="coming__soon">
-        <p>Coming soon</p>
-        <p>See all</p>
+        <p>Próximamente</p>
+        <p>Ver todo</p>
       </div>
 
       <div className="coming__soon__list">
@@ -253,15 +253,15 @@ const Menu = ({ focusSearchInput }) => {
       </div>
       <div onClick={() => setActiveIcon('search')} className={`menu__item ${activeIcon === 'search' ? 'active' : ''}`} onClick={focusSearchInput}>
         <i className="bi bi-search"></i>
-        <span>Search</span>
+        <span>Buscar</span>
       </div>
       <div onClick={showAllTickets} className={`menu__item ${activeIcon === 'tickets' ? 'active' : ''}`}>
         <i className="bi bi-ticket-perforated"></i>
-        <span>My Tickets</span>
+        <span>Mis Tickets</span>
       </div>
       <div className={`menu__item ${activeIcon === 'user' ? 'active' : ''}`}>
         <i className="bi bi-person"></i>
-        <span>Account</span>
+        <span>Cuenta</span>
       </div>
     </nav>
   );

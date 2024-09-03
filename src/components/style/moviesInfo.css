@@ -136,6 +136,7 @@
   .cinema__photo {
     width: 75px;
     object-fit: cover;
+    margin: 6px;
   }
   
   .cinema__overviwer {
@@ -171,4 +172,7 @@
   i {
     font-size: 24px;
     color: #ffff;
+  }
+  .container_movies  {
+    margin-top: 12px;
   }

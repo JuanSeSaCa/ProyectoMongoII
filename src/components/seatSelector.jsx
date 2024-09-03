@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './style/seatSelector.css'; // * Importando el archivo CSS
 
 const SeatSelector = () => {
+  const navigate = useNavigate();
   // * Estados para gestionar la selección de asientos, fecha y hora
   const [selectedSeats, setSelectedSeats] = useState([]); // Estado para los asientos seleccionados
   const [currentDate, setCurrentDate] = useState(new Date()); // Estado para la fecha actual
@@ -110,14 +111,14 @@ const SeatSelector = () => {
     <section className="asientos">
     <form id="myform" onSubmit={handleSubmit}>
       <div className="seat-selection">
-        <HeaderBack header="Choose Seat" onBack={() => navigate(-1)} /> {/* Cambiado a navigate(-1) */}
+        <HeaderBack header="Elige tus asientos" onBack={() => navigate(-1)} /> {/* Cambiado a navigate(-1) */}
         <div className="screen-indicator">
           <img
-            src="/vector.png"
+            src="/public/vector.png"
             alt="Screen Indicator"
             style={{ width: '375px', height: 'auto', maxWidth: '100%' }}
           />
-          <div className="screen-text">Screen This Way</div>
+          <div className="screen-text">Pantalla</div>
         </div>
       </div>
       <article className="asientos__normal">
@@ -228,13 +229,13 @@ const SeatSelector = () => {
       </article>
       <article className="asientos__menu">
         <div className="asientos__menu-item">
-          <span className="circle available"></span> <label>Available</label>
+          <span className="circle available"></span> <label>Disponibles</label>
         </div>
         <div className="asientos__menu-item">
-          <span className="circle reserved"></span> <label>Reserved</label>
+          <span className="circle reserved"></span> <label>Reservados</label>
         </div>
         <div className="asientos__menu-item">
-          <span className="circle selected"></span> <label>Selected</label>
+          <span className="circle selected"></span> <label>Seleccionados</label>
         </div>
       </article>
 
@@ -297,10 +298,10 @@ const SeatSelector = () => {
       {/* Ticket Purchase Section */}
       <div className="ticket-purchase">
         <div className="price-info">
-          <div className="label">Price</div>
+          <div className="label">Valor</div>
           <div className="total-price">$ {calculateTotalPrice()} COP</div>
         </div>
-        <button type="submit" className="buy-ticket-button">Buy Ticket</button>
+        <button type="submit" className="buy-ticket-button">Comprar Tickets</button>
       </div>
 
     </form>

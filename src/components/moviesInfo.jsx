@@ -65,7 +65,7 @@ const MoviesInfo = () => {
   return (
     <div>
       {/* * Renderiza el componente de encabezado con la opción de retroceder */}
-      <HeaderBack header="Details of the movie" onBack={() => navigate('/')} />
+      <HeaderBack header="Detalles de la Película" onBack={() => navigate('/')} />
 
       <div className="movie__card">
         {movie ? ( // ? Comprueba si los datos de la película están cargados
@@ -91,7 +91,7 @@ const MoviesInfo = () => {
                 {/* * Botón para reproducir el tráiler */}
                 <button className="trailer__1" onClick={handlePlayTrailer}>
                   <i className="bi bi-play-fill"></i>
-                  <p>Watch Trailer</p>
+                  <p>Ver Trailer</p>
                 </button>
                 <small style={{ color: '#CECECE' }}>{movie.generos.join(', ')}</small>
               </div>
@@ -132,21 +132,21 @@ const MoviesInfo = () => {
           >
             <div className="cinema__overviwer">
               <p style={{ color: '#FFFF' }}>CampusLands</p>
-              <small style={{ color: '#CECECE' }}>Auditorio principal</small>
+              <small style={{ color: '#CECECE' }}>Bucaramanga</small>
             </div>
-            <img className="cinema__photo" style={{ borderRadius: '10px' }} src="/cinema.jpg" alt="cinema" />
+            <img className="cinema__photo" style={{ borderRadius: '10px' }} src="/public/cineCampusImg.png" alt="cinema" />
           </button>
         </div>
 
-        {movie && movie.estado === 'disponible' && ( // ? Comprueba si la película está disponible
+        
           <button
             className="book__ticket"
             onClick={() => navigate(`/movie/${id}/rooms`)}
             disabled={!isCinemaBoxSelected} // ! Deshabilitado hasta que se seleccione cinema__box
           >
-            Book Now
+            Reserva ahora
           </button>
-        )}
+        
       </div>
     </div>
   );

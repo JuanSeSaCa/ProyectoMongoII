@@ -278,13 +278,24 @@ seat-selection {
     border: none;
     color: white;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
     width: 250px;
     height: 60px;
+    font-weight: bold;
   }
   
   .buy-ticket-button:hover {
     background-color: #d40000;
   }
+
+  .header__back__2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 60px;
+    background-color: #242424;
+    font-size: 18px;
+}

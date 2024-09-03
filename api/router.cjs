@@ -11,7 +11,7 @@ const lugaresController = require('./controllers/lugaresController.cjs');
 
 // Importar validadores
 const peliculasValidator = require('./validators/peliculasValidator.cjs');
-const asientosValidator = require('./validators/asientosValidator');
+const asientosValidator = require('./validators/asientosValidator.cjs');
 const funcionesValidator = require('./validators/funcionesValidator.cjs');
 const clientesValidator = require('./validators/clientesValidator.cjs');
 const boletasValidator = require('./validators/boletasValidator.cjs');

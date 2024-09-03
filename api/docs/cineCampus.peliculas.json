@@ -1,177 +1,180 @@
-[{
-  "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecd6"},
-  "titulo": "John Wick: Capítulo 4",
+[
+  {
+    "_id": {
+      "$oid": "66a6cdd3a7ff449f3519ecd6"
+    },
+    "titulo": "Deadpool 3",
     "generos": [
       "Acción",
-      "Crimen",
-      "Thriller"
+      "Comedia",
+      "Ciencia ficción"
     ],
-    "duracion": 175,
-    "sinopsis": "John Wick debe enfrentarse a sus enemigos más peligrosos mientras sigue luchando por su vida y por la venganza.",
-    "backdrop_path": "https://media.themoviedb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
-    "poster_path": "https://extra.com.co/wp-content/uploads/2022/07/2_38.jpg",
+    "duracion": 135,
+    "sinopsis": "Deadpool regresa para enfrentarse a nuevas amenazas mientras lidia con su característico humor irreverente.",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w500/9TFSqghEHrlBMRR63yTx80Orxva.jpg",
+    "poster_path": "https://media.themoviedb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
     "actores": [
       {
-        "nombre": "Keanu Reeves",
-        "imagen": "https://media.themoviedb.org/t/p/w500/4D0PpNI0kmP58hgrwGC3wCjxhnm.jpg",
-        "character_name": "John Wick"
+        "nombre": "Ryan Reynolds",
+        "imagen": "https://media.themoviedb.org/t/p/w500/52GxBTYdLLc3x3UVSplZdHqj4RR.jpg",
+        "character_name": "Wade Wilson / Deadpool"
       },
       {
-        "nombre": "Laurence Fishburne",
-        "imagen": "https://media.themoviedb.org/t/p/w500/iwx7h0AfWMm9K4sMmhru3ShSra.jpg",
-        "character_name": "The Bowery King"
+        "nombre": "Hugh Jackman",
+        "imagen": "https://image.tmdb.org/t/p/original/4Xujtewxqt6aU0Y81tsS9gkjizk.jpg",
+        "character_name": "Logan / Wolverine"
       },
       {
-        "nombre": "Ian McShane",
-        "imagen": "https://media.themoviedb.org/t/p/w500/rteBJYNgD1yGsHg2HGZAIrYHz1t.jpg",
-        "character_name": "Winston"
+        "nombre": "Morena Baccarin",
+        "imagen": "https://media.themoviedb.org/t/p/w500/6Z59BjoTiGAbGb19lYwrb9FOjkV.jpg",
+        "character_name": "Vanessa Carlysle"
       }
     ],
-    "trailer": "https://www.youtube.com/watch?v=qEVUtrk8_B4&t=73s"
+    "trailer": "https://www.youtube.com/watch?v=uDzfa0w86Vw"
   },
-{
-  "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecd7"
-  },
-  "titulo": "Doctor Strange en el Multiverso de la Locura",
-  "generos": [
-    "Acción",
-    "Aventura",
-    "Ciencia ficción"
-  ],
-  "duracion": 148,
-  "sinopsis": "Doctor Strange se adentra en el multiverso, enfrentando nuevos peligros y aliados mientras intenta salvar la realidad misma.",
-  "backdrop_path": "https://media.themoviedb.org/t/p/w500/9VZO30aIAhQoiiP3qsRd5jd7UvQ.jpg",
-  "poster_path": "https://lumiere-a.akamaihd.net/v1/images/image_451523ce.jpeg?region=0,0,540,810",
-  "actores": [
-    {
-      "nombre": "Benedict Cumberbatch",
-      "imagen": "https://media.themoviedb.org/t/p/w500/fBEucxECxGLKVHBznO0qHtCGiMO.jpg",
-      "character_name": "Doctor Stephen Strange"
+  {
+    "_id": {
+      "$oid": "66a6cdd3a7ff449f3519ecd7"
     },
-    {
-      "nombre": "Elizabeth Olsen",
-      "imagen": "https://media.themoviedb.org/t/p/w500/wIU675y4dofIDVuhaNWPizJNtep.jpg",
-      "character_name": "Wanda Maximoff / Scarlet Witch"
+    "titulo": "Doctor Strange en el Multiverso de la Locura",
+    "generos": [
+      "Acción",
+      "Aventura",
+      "Ciencia ficción"
+    ],
+    "duracion": 148,
+    "sinopsis": "Doctor Strange se adentra en el multiverso, enfrentando nuevos peligros y aliados mientras intenta salvar la realidad misma.",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w500/9VZO30aIAhQoiiP3qsRd5jd7UvQ.jpg",
+    "poster_path": "https://lumiere-a.akamaihd.net/v1/images/image_451523ce.jpeg?region=0,0,540,810",
+    "actores": [
+      {
+        "nombre": "Benedict Cumberbatch",
+        "imagen": "https://media.themoviedb.org/t/p/w500/fBEucxECxGLKVHBznO0qHtCGiMO.jpg",
+        "character_name": "Doctor Stephen Strange"
+      },
+      {
+        "nombre": "Elizabeth Olsen",
+        "imagen": "https://media.themoviedb.org/t/p/w500/wIU675y4dofIDVuhaNWPizJNtep.jpg",
+        "character_name": "Wanda Maximoff / Scarlet Witch"
+      },
+      {
+        "nombre": "Chiwetel Ejiofor",
+        "imagen": "https://image.tmdb.org/t/p/original/pbnWjBsze67Fbr3gZAP1ZP407ZU.jpg",
+        "character_name": "Karl Mordo"
+      }
+    ],
+    "trailer": "https://www.youtube.com/watch?v=KREBGtEeW9U"
+  },
+  {
+    "_id": {
+      "$oid": "66a6cdd3a7ff449f3519ecd8"
     },
-    {
-      "nombre": "Chiwetel Ejiofor",
-      "imagen": "https://image.tmdb.org/t/p/original/pbnWjBsze67Fbr3gZAP1ZP407ZU.jpg",
-      "character_name": "Karl Mordo"
-    }
-  ],
-  "trailer": "https://www.youtube.com/watch?v=KREBGtEeW9U"
-},
-{
-  "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecd8"
+    "titulo": "The Matrix Resurgence",
+    "sinopsis": "Neo y Trinity regresan para desentrañar nuevos secretos del Matrix.",
+    "genero": "Ciencia Ficción",
+    "año": 2024,
+    "actores": [
+      "Keanu Reeves",
+      "Carrie-Anne Moss"
+    ],
+    "descripcion": "Neo y Trinity descubren verdades ocultas mientras luchan contra nuevas amenazas en el Matrix."
   },
-  "titulo": "The Matrix Resurgence",
-  "sinopsis": "Neo y Trinity regresan para desentrañar nuevos secretos del Matrix.",
-  "genero": "Ciencia Ficción",
-  "año": 2024,
-  "actores": [
-    "Keanu Reeves",
-    "Carrie-Anne Moss"
-  ],
-  "descripcion": "Neo y Trinity descubren verdades ocultas mientras luchan contra nuevas amenazas en el Matrix."
-},
-{
-  "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecd9"
+  {
+    "_id": {
+      "$oid": "66a6cdd3a7ff449f3519ecd9"
+    },
+    "titulo": "Frozen: The Next Chapter",
+    "sinopsis": "Elsa y Anna enfrentan nuevas aventuras en el reino de Arendelle.",
+    "genero": "Animación",
+    "año": 2024,
+    "actores": [
+      "Idina Menzel",
+      "Kristen Bell"
+    ],
+    "descripcion": "Las hermanas deben salvar su reino de un nuevo peligro que amenaza con congelarlo todo."
   },
-  "titulo": "Frozen: The Next Chapter",
-  "sinopsis": "Elsa y Anna enfrentan nuevas aventuras en el reino de Arendelle.",
-  "genero": "Animación",
-  "año": 2024,
-  "actores": [
-    "Idina Menzel",
-    "Kristen Bell"
-  ],
-  "descripcion": "Las hermanas deben salvar su reino de un nuevo peligro que amenaza con congelarlo todo."
-},
-{
-  "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecda"
+  {
+    "_id": {
+      "$oid": "66a6cdd3a7ff449f3519ecda"
+    },
+    "titulo": "Mission: Impossible - Reckoning",
+    "sinopsis": "Ethan Hunt y su equipo deben desactivar una nueva amenaza global.",
+    "genero": "Acción",
+    "año": 2024,
+    "actores": [
+      "Tom Cruise",
+      "Rebecca Ferguson"
+    ],
+    "descripcion": "Ethan Hunt se enfrenta a su misión más difícil cuando una nueva arma amenaza la paz mundial."
   },
-  "titulo": "Mission: Impossible - Reckoning",
-  "sinopsis": "Ethan Hunt y su equipo deben desactivar una nueva amenaza global.",
-  "genero": "Acción",
-  "año": 2024,
-  "actores": [
-    "Tom Cruise",
-    "Rebecca Ferguson"
-  ],
-  "descripcion": "Ethan Hunt se enfrenta a su misión más difícil cuando una nueva arma amenaza la paz mundial."
-},
-{
-  "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecdb"
+  {
+    "_id": {
+      "$oid": "66a6cdd3a7ff449f3519ecdb"
+    },
+    "titulo": "Toy Story 5",
+    "sinopsis": "Woody y Buzz emprenden una nueva aventura en el mundo de los juguetes.",
+    "genero": "Animación",
+    "año": 2024,
+    "actores": [
+      "Tom Hanks",
+      "Tim Allen"
+    ],
+    "descripcion": "Los juguetes descubren nuevos amigos y enfrentan desafíos mientras exploran un nuevo hogar."
   },
-  "titulo": "Toy Story 5",
-  "sinopsis": "Woody y Buzz emprenden una nueva aventura en el mundo de los juguetes.",
-  "genero": "Animación",
-  "año": 2024,
-  "actores": [
-    "Tom Hanks",
-    "Tim Allen"
-  ],
-  "descripcion": "Los juguetes descubren nuevos amigos y enfrentan desafíos mientras exploran un nuevo hogar."
-},
-{
-  "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecdc"
+  {
+    "_id": {
+      "$oid": "66a6cdd3a7ff449f3519ecdc"
+    },
+    "titulo": "The Flash: Speed Force",
+    "sinopsis": "Barry Allen debe viajar a través del tiempo para salvar el multiverso.",
+    "genero": "Ciencia Ficción",
+    "año": 2024,
+    "actores": [
+      "Ezra Miller",
+      "Michael Keaton"
+    ],
+    "descripcion": "Flash debe usar su velocidad para corregir los errores del pasado y evitar un desastre multiversal."
   },
-  "titulo": "The Flash: Speed Force",
-  "sinopsis": "Barry Allen debe viajar a través del tiempo para salvar el multiverso.",
-  "genero": "Ciencia Ficción",
-  "año": 2024,
-  "actores": [
-    "Ezra Miller",
-    "Michael Keaton"
-  ],
-  "descripcion": "Flash debe usar su velocidad para corregir los errores del pasado y evitar un desastre multiversal."
-},
-{
-  "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecdd"
+  {
+    "_id": {
+      "$oid": "66a6cdd3a7ff449f3519ecdd"
+    },
+    "titulo": "Guardians of the Galaxy Vol. 4",
+    "sinopsis": "Los Guardianes deben proteger la galaxia de una nueva amenaza cósmica.",
+    "genero": "Aventura",
+    "año": 2024,
+    "actores": [
+      "Chris Pratt",
+      "Zoe Saldana"
+    ],
+    "descripcion": "Los Guardianes enfrentan a un nuevo enemigo mientras descubren secretos de su pasado."
   },
-  "titulo": "Guardians of the Galaxy Vol. 4",
-  "sinopsis": "Los Guardianes deben proteger la galaxia de una nueva amenaza cósmica.",
-  "genero": "Aventura",
-  "año": 2024,
-  "actores": [
-    "Chris Pratt",
-    "Zoe Saldana"
-  ],
-  "descripcion": "Los Guardianes enfrentan a un nuevo enemigo mientras descubren secretos de su pasado."
-},
-{
-  "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecde"
+  {
+    "_id": {
+      "$oid": "66a6cdd3a7ff449f3519ecde"
+    },
+    "titulo": "Spider-Man: Beyond Dimensions",
+    "sinopsis": "Peter Parker se enfrenta a nuevos desafíos en dimensiones desconocidas.",
+    "genero": "Acción",
+    "año": 2024,
+    "actores": [
+      "Tom Holland",
+      "Zendaya"
+    ],
+    "descripcion": "Spider-Man debe navegar por nuevas realidades para proteger su mundo y a sus seres queridos."
   },
-  "titulo": "Spider-Man: Beyond Dimensions",
-  "sinopsis": "Peter Parker se enfrenta a nuevos desafíos en dimensiones desconocidas.",
-  "genero": "Acción",
-  "año": 2024,
-  "actores": [
-    "Tom Holland",
-    "Zendaya"
-  ],
-  "descripcion": "Spider-Man debe navegar por nuevas realidades para proteger su mundo y a sus seres queridos."
-},
-{
-  "_id": {
-    "$oid": "66a6cdd3a7ff449f3519ecdf"
-  },
-  "titulo": "Star Wars: The Final Order",
-  "sinopsis": "La batalla definitiva entre la Resistencia y la Primera Orden.",
-  "genero": "Ciencia Ficción",
-  "año": 2024,
-  "actores": [
-    "Daisy Ridley",
-    "Adam Driver"
-  ],
-  "descripcion": "La Resistencia lucha por la libertad en una última confrontación contra la Primera Orden."
-}]
+  {
+    "_id": {
+      "$oid": "66a6cdd3a7ff449f3519ecdf"
+    },
+    "titulo": "Star Wars: The Final Order",
+    "sinopsis": "La batalla definitiva entre la Resistencia y la Primera Orden.",
+    "genero": "Ciencia Ficción",
+    "año": 2024,
+    "actores": [
+      "Daisy Ridley",
+      "Adam Driver"
+    ],
+    "descripcion": "La Resistencia lucha por la libertad en una última confrontación contra la Primera Orden."
+  }
+]

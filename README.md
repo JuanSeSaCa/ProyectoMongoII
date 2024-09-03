@@ -4,13 +4,15 @@
 
 variables de entorno para conexión:
 
-MONGO_USER="mongo"
-MONGO_PORT="27017"
-MONGO_PWD="llyfGdBqEGUyIBdNBuygTmoPHBesrxjq"
-MONGO_HOST="mongodb://"
-MONGO_CLUSTER="monorail.proxy.rlwy.net"
-MONGO_DB="cineCampus"
+VITE_MONGO_USER=mongo
+VITE_MONGO_PORT=57055
+VITE_MONGO_PWD=KocbYoiMTryhAwTPHkxNUjMPtnKklHFn
+VITE_MONGO_HOST=autorack.proxy.rlwy.net
+VITE_MONGO_DB=cineCampus
 
+VITE_HOST=localhost
+VITE_PORT_FRONTEND=5173
+VITE_PORT_BACKEND=5174
 
 
 **Tiempo de ejecución**: 4 Dias
